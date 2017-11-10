@@ -77,19 +77,19 @@ window.App = {
 
     SendCoins: function() {
         var self = this;
-        var receiver = document.getElementById("sendCoinReceiver").value;
+        var receiver = document.getElementById("Sender").value;
         console.log("Coinreciever:------>" + receiver);
         
-        var accname=document.getElementById("accountName").value;
+        var accname=document.getElementById("accName").value;
         console.log("lol----",accname)
         
-        var bank_name=(document.getElementById("bank_name").value);
+        var bank_name=(document.getElementById("b_name").value);
         console.log("lol----",bank_name)
         
-        var amount = parseInt(document.getElementById("CoinAmount").value);
+        var amount = parseInt(document.getElementById("CAmount").value);
         console.log("lolol------>",amount);
         
-        var date=(document.getElementById("issueddate").value);
+        var date=(document.getElementById("idate").value);
         console.log("lolol------>",date);
         
         var status="Approved";
@@ -137,19 +137,19 @@ window.App = {
     },
     RejectTransaction: function() {
         var self = this;
-        var receiver = document.getElementById("sendCoinReceiver").value;
+        var receiver = document.getElementById("_Send").value;
         console.log("Coinreciever:------>" + receiver);
         
-        var accname=document.getElementById("accountName").value;
+        var accname=document.getElementById("acc").value;
         console.log("lol----",accname)
         
-        var bank_name=(document.getElementById("bank_name").value);
+        var bank_name=(document.getElementById("_name").value);
         console.log("lol----",bank_name)
         
-        var amount = parseInt(document.getElementById("CoinAmount").value);
+        var amount = parseInt(document.getElementById("Cmount").value);
         console.log("lolol------>",amount);
         
-        var date=(document.getElementById("issueddate").value);
+        var date=(document.getElementById("idat").value);
         console.log("lolol------>",date);
         
         var status="Rejected";

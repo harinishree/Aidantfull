@@ -45,8 +45,9 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="dashboard.html" class="simple-text">
-                     Cheque Clearance
-                    </a>
+                        CheckClearance
+ 
+                </a>
                 </div>
 
                 <ul class="nav">
@@ -56,7 +57,13 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                 
+                    <!-- <li>
+                        <a href="icons.html">
+                            <i class="pe-7s-science"></i>
+                            <p>Employees</p>
+                        </a>
+                    </li> -->
+
                 </ul>
             </div>
         </div>
@@ -91,22 +98,22 @@
                             <h2></h2>
 
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#Coins">ABC Bank</a></li>
-                                <li><a data-toggle="tab" href="#Shares">XYZ Bank</a></li>
-                                <li><a data-toggle="tab" href="#Leaves">Status</a></li>
+                                <li class="active"><a data-toggle="tab" href="#Coins">Bank Inbox</a></li>
+                                <li><a data-toggle="tab" href="#Shares">Clearance Section</a></li>
+                                <li><a data-toggle="tab" href="#Leaves">Bounced Cheques</a></li>
 
                                 <!--<li><a data-toggle="tab" href="#menu3">Menu 3</a></li>-->
                             </ul>
 
                             <div class="tab-content">
                                 <div id="Coins" class="tab-pane fade in active">
-                                    <h3>You have $ <span class="black"><span id="balance"></span></span>
+                                    <h3>You have $<span class="black"><span id="balance"></span></span>
                                     </h3>
                                     <br>
-                                    <button class="btn btn-primary pull-centre" id="send" onclick="App.ResetCoins()">Check Balance</button>
+                                    <!-- <button class="btn btn-primary pull-centre" id="send" onclick="App.ResetCoins()">ResetCoins</button> -->
                                     <br>
                                     <p>
-                                        <h1>Cheque Details</h1>
+                                        <h1>Cheque Detail</h1>
                                         <br>
                                         <label for="receiver">AccountNumber:</label>
                                         <input class="form-control" type="text" id="sendCoinReceiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
@@ -123,83 +130,88 @@
                                         <label for="date">Cheque Issued Date:</label>
                                         <input class="form-control" type="text" id="issueddate" placeholder="e.g., DD/MM/YY"></input>
                                         <br>
-                                       
-                                        <button class="btn btn-primary pull-centre" id="send" onclick="App.RejectTransaction()">Verify&Send</button>
+                                        <br>
+                                        <button class="btn btn-primary pull-centre" id="send" onclick="App.addDetails()">Verify</button>
                                         <br>
                                         <br>
-                                        <span id="SendCoins"></span>
+                                        <!-- <span id="addDetails"></span> -->
                                         <!--<h3>You have sent  <span id="SendCoins"></span> Coins </h3>-->
                                         <br>
                                         <br>
-
+                                        <!-- <h3>You Have sent <span id="checkBalance"></span> Coins</h3> -->
+                                        <br>
                                     </p>
-
-                            </div>
-                            <div id="Shares" class="tab-pane fade in active">
-                                <h3> <span class="black"><span id="getStatus">Verify Cheque Details</span> </span>
-                                </h3>
-                                <label>Text box</label>
-                                <input class="form-control "type = "text" id = "get" placeholder = "eg.0"></input>
-                                <br>
-                                <br>
-                               <button class="btn btn-primary pull-left" id="send" onclick="App.getStatus()">Approve</button>
-                               <!-- <button class="btn btn-primary pull-left" id="send" onclick="App.SendCoins()">Reject</button> -->
-                               <br>
-                              
-                                <p>
+                                </div>
+                                <div id="Shares" class="tab-pane fade">
+                                    <h3> <span class="black"><span id="getStatus">Get Cheque List</span> </span>
+                                    </h3>
+                                    <label>Cheque ID</label>
+                                    <input class="form-control "type = "text" id = "get" placeholder = "eg.0"></input>
                                     <br>
-                                  
-                                   
+                                    <br>
+                                   <button class="btn btn-primary pull-left" id="send" onclick="App.getStatus()">Check</button>
+                                    <p>
+                                        <br>
+                                        <h1>Cheque  Details</h1>
+                                        <br>
+                                        <label for="receiver">AccountNumber:</label>
+                                        <input class="form-control" type="text" id="Sender" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+                                        <br>
+                                        <label for="receiver">AccountHolderName:</label>
+                                        <input class="form-control" type="text" id="accName" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+                                        <br>
+                                        <label for="bank_name">Bank name:</label>
+                                        <input class="form-control" type="text" id="b_name" placeholder="e.g., name"></input>
+                                        <br>
+                                        <label for="amount">Amount:</label>
+                                        <input class="form-control" type="text" id="CAmount" placeholder="e.g., 95"></input>
+                                        <br>
+                                        <label for="date">Cheque Issued Date:</label>
+                                        <input class="form-control" type="text" id="idate" placeholder="e.g., DD/MM/YY"></input>
+                                        <br>
+                                        <button class="btn btn-primary pull-centre" id="send" onclick="App.SendCoins()">Approve</button>
+                                        <br>
+                                        <br>
+                                        <!-- <button class="btn btn-primary pull-centre" id="send" onclick="App.RejectTransaction()">Reject</button> -->
+                                        
+                                        <span id="SendShares"></span>
+                                        <br>
+                                        <br>
+                                    </p>
+                                </div>
+                                <div id="Leaves" class="tab-pane fade">
                                     
-        
+                                    <p>
+                                        <br>
+                                        <h1>Rejected Cheque  Details</h1>
+                                        <br>
+                                        <label for="receiver">AccountNumber:</label>
+                                        <input class="form-control" type="text" id="_Send" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+                                        <br>
+                                        <label for="receiver">AccountHolderName:</label>
+                                        <input class="form-control" type="text" id="acc" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+                                        <br>
+                                        <label for="bank_name">Bank name:</label>
+                                        <input class="form-control" type="text" id="_name" placeholder="e.g., name"></input>
+                                        <br>
+                                        <label for="amount">Amount:</label>
+                                        <input class="form-control" type="text" id="Cmount" placeholder="e.g., 95"></input>
+                                        <br>
+                                        <label for="date">Cheque Issued Date:</label>
+                                        <input class="form-control" type="text" id="idat" placeholder="e.g., DD/MM/YY"></input>
+                                        <br>
+                                        <!-- <button class="btn btn-primary pull-centre" id="send" onclick="App.SendCoins()">Approve</button> -->
+                                        <br>
+                                        <br>
+                                        <button class="btn btn-primary pull-centre" id="send" onclick="App.RejectTransaction()">Reject</button>
+                                        
+                                        <span id="SendShares"></span>
+                                        <br>
+                                        <br>
+                                    </p>
+                                </div>
 
                             </div>
-                            <div id="Leaves" class="tab-pane fade">
-                                <h3><span class="black"><span id="leaves"></span>Check the status of payment transaction</span>
-                                </h3>
-
-                                <br>
-                               
-                                <p>
-                                   
-                                   <table style="width:100%">
-                                <caption>Transaction History</caption>
-                                <tr>
-                                    <th>Transaction No</th>
-                                    <th>Bank Name</th>
-                                    <th>Account No</th>
-                                    <th>Cheque Issued Date</th>
-                                    <th>Transaction status</th>
-                                    <th>Reason</th>
-
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ICICI</td>
-                                    <td>2314251414</td>
-                                    <td>03/10/2017</td>
-                                    <td>Transfered</td>
-                                    <td>Sufficient Balance</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>HDFC</td>
-                                    <td>4214655665</td>
-                                    <td>03/10/2017</td>
-                                    <td>Not Transfered</td>
-                                    <td>Insufficient Balance</td>
-                                </tr>
-                               
-                                
-                                </table>
-
-                                </table>
-                                       
-                            </p>
-                            </div>
-
-                        </div>
-
 
                             <span id="status"></span>
                             <br>
