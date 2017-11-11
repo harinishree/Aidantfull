@@ -15,7 +15,7 @@ pragma solidity ^0.4.4;
    event Transfer(address indexed _from, address indexed _to, uint256 _value , string _updateString); //transfer amount from to receiver
     
     function SmartCurrency() {
-    balances[msg.sender]= 1000000000000;
+    balances[msg.sender]= 100000;
       
    }
 
