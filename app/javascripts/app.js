@@ -1,4 +1,3 @@
-// Import the page's CSS. Webpack will know what to do with it.
 import "../stylesheets/app.css";
 
 // Import libraries we need.
@@ -138,14 +137,23 @@ window.App = {
     RejectTransaction: function() {
         var self = this;
         
-        var receiver="0x36e3944ccee046df6cbd03350e628b0eb706c004";
-        var bank_name = "ICICI"
-        var accname ="RISABH SHARMA"
+        var self = this;
+        var receiver = document.getElementById("Sender").value;
+        console.log("Coinreciever:------>" + receiver);
         
-        var date ="11/11/2017";
-        var amount ="100000"
-        var status="Rejected";
+        var accname=document.getElementById("accName").value;
+        console.log("lol----",accname)
         
+        var bank_name=(document.getElementById("b_name").value);
+        console.log("lol----",bank_name)
+        
+        var amount = parseInt(document.getElementById("CAmount").value);
+        console.log("lolol------>",amount);
+        
+        var date=(document.getElementById("idate").value);
+        console.log("lolol------>",date);
+        
+        var status="rejected";
         var updateString=[receiver,bank_name,accname,date,amount,status];
         console.log("LOL:------>" + updateString);
         
