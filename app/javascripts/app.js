@@ -78,7 +78,7 @@ window.App = {
         var self = this;
         var receiver = document.getElementById("Sender").value;
         console.log("Coinreciever:------>" + receiver);
-        
+
         var accname=document.getElementById("accName").value;
         console.log("lol----",accname)
         
@@ -179,6 +179,9 @@ window.App = {
     var self = this;
     var receiver = document.getElementById("sendCoinReceiver").value;
     console.log("Coinreciever:------>" + receiver);
+
+    var accname = document.getElementById("accountName").value;
+    console.log("lol----",accname)
     
     var bank_name=(document.getElementById("bank_name").value);
     console.log("lol----",bank_name)
@@ -191,7 +194,7 @@ window.App = {
 
     var status="validation in progress";
     
-    var updateString=[receiver,bank_name,amount,date,status]
+    var updateString=[receiver,accname,bank_name,amount,date,status]
     // updateString.toString();
     console.log("lol-------->",updateString);
     var rapid;
@@ -233,7 +236,12 @@ window.App = {
         });
 
     },
-};
+
+
+
+
+}
+
 
 window.addEventListener('load', function() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
