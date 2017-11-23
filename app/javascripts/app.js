@@ -8,7 +8,7 @@ import { default as contract } from 'truffle-contract'
 
 // Import our contract artifacts and turn them into usable abstractions.
 import smartcurrency_artifacts from '../../build/contracts/SmartCurrency.json'
-
+import pending from '../../app/javascripts/pending.js'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var SmartCurrency = contract(smartcurrency_artifacts);
@@ -20,6 +20,7 @@ var SmartCurrency = contract(smartcurrency_artifacts);
 var accounts;
 // var account;
 var bankA;
+var test;
 window.App = {
     start: function() {
         var self = this;
@@ -101,9 +102,11 @@ window.App = {
         var rapid;
         SmartCurrency.deployed().then(function(instance) {
             rapid = instance;
+            console.log(receiver);
             return rapid.SendCoins(receiver, updateString.toString(), amount, {
                 from: bankA
             });
+            
         }).then(function(value) {
 
             self.setStatus("Transaction complete!");
@@ -228,8 +231,24 @@ window.App = {
             });
         
         }).then(function(value) {
-            var balance_element = document.getElementById("getStatus");
-            balance_element.innerHTML = value.valueOf();
+            var input = document.getElementById("myTable");
+           input.innerHTML = value.valueOf();
+           test = value;
+           
+           
+           var fields = test.split(",");
+           var accountnumber = fields[0];
+           console.log(accountnumber);
+           console.log(fields,"fields");
+           pending.send(test);
+
+           
+           
+        //    var accountnumber = fields[0];
+        //    var bankname = fields[1];
+           // etc.
+         
+
         }).catch(function(e) {
             console.log(e);
             self.setStatus("Error getting balance; see log.");

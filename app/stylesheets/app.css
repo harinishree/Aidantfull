@@ -113,6 +113,7 @@ p {font-size: 16px;}
 }
 .navbar-brand{
   color:deepskyblue
+  
 
 }
 #deep{
@@ -134,7 +135,9 @@ p {font-size: 16px;}
   color:black
 }
 #man{
-  background-color: currentColor
+  background-color: currentColor;
+  font-size: 20px;
+  font-weight: 200;
 }
 #men{
   background-color:  gainsboro;
