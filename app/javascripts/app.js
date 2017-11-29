@@ -8,7 +8,7 @@ import { default as contract } from 'truffle-contract'
 
 // Import our contract artifacts and turn them into usable abstractions.
 import smartcurrency_artifacts from '../../build/contracts/SmartCurrency.json'
-import pending from '../../app/javascripts/pending.js'
+// import pending from '../../app/javascripts/pending.js'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var SmartCurrency = contract(smartcurrency_artifacts);
@@ -20,8 +20,25 @@ var SmartCurrency = contract(smartcurrency_artifacts);
 var accounts;
 // var account;
 var bankA;
-var test;
+var test = [];
+// var columnDefs = [
+//     {headerName: "AccountNumber", field: "accountnumber"},
+//     {headerName: "AccountHolderName", field: "accountholdername"},
+//     {headerName: "Bank", field: "bank"},
+//     {headerName: "Amount", field: "amount"},
+//     {headerName: "IssuedDate", field: "issueddate"},
+//     {headerName: "Status", field:"status"}
+// ];
+var rowData1=[];
+// var rowData = [
+//     {accountnumber: "24567654", accountholdername: "Risabh", bank:"SBI",amount:"10000",issueddate:"11/11/2017",status:"validation in progress"},
+//     {accountnumber: "24534355", accountholdername: "Arun", bank:"ICICI",amount:"1500",issueddate:"12/11/2017",status:"validation in progress"},
+//     {accountnumber: "24546467", accountholdername: "Uma", bank:"YES",amount:"2000",issueddate:"13/11/2017",status:"validation in progress"},
+// ];
+// specify the data
 window.App = {
+    
+
     start: function() {
         var self = this;
 
@@ -94,7 +111,7 @@ window.App = {
         
         var status="Approved";
         
-        var updateString=[bank_name,accname,date,status];
+        var updateString=[receiver,accname,bank_name,amount,date,status];
         console.log("LOL:------>" + updateString);
         
         this.setStatus("Initiating transaction... (please wait)");
@@ -103,7 +120,7 @@ window.App = {
         SmartCurrency.deployed().then(function(instance) {
             rapid = instance;
             console.log(receiver);
-            return rapid.SendCoins(receiver, updateString.toString(), amount, {
+            return rapid.SendCoins( receiver,updateString.toString(),amount,{
                 from: bankA
             });
             
@@ -117,7 +134,7 @@ window.App = {
             self.setStatus("Error Approving transaction due to insufficient Balance");
         });
     },
-
+   
     checkBalance: function() {
         var self = this;
         var rapid;
@@ -231,16 +248,72 @@ window.App = {
             });
         
         }).then(function(value) {
-            var input = document.getElementById("myTable");
-           input.innerHTML = value.valueOf();
+            
+           
+    
+        
+      
+           
+          
+        //    document.addEventListener("DOMContentLoaded", function() {
+            
+        //         // lookup the container we want the Grid to use
+        //         var eGridDiv = document.querySelector('#myTable');
+            
+        //         // create the grid passing in the div to use together with the columns & data we want to use
+        //        new agGrid.Grid(eGridDiv, gridOptions);
+        //     });
+        //     location.reload();
+            
+         
            test = value;
            
            
-           var fields = test.split(",");
+         var fields = test.split(",");
            var accountnumber = fields[0];
+           var accountholdername = fields[1];
+           var bank = fields[2];
+           var amount = fields[3];
+           var issueddate = fields[4];
+           var status =  fields[5];
+          
+            var row = "<tr><td>"+accountnumber+"</td><td>"+accountholdername+"</td><td>"+bank+"</td><td>"+amount+"</td><td>"+issueddate+"</td><td>"+status+"</td></tr>";
+            $('#myTable tr:last').after(row);
+          
+           
            console.log(accountnumber);
+           console.log(accountholdername);
+           console.log(bank);
+           console.log(amount);
+           console.log(issueddate);
+           console.log(status);
            console.log(fields,"fields");
-           pending.send(test);
+           
+           
+
+           
+    //        var gridOptions = {
+    //         columnDefs: columnDefs,
+    //         rowData: rowData1,
+    //         enableSorting: true,
+    //         // enable filtering 
+    //         enableFilter: true,
+    //         getRowNodeId: function(data) { return data.accountnumber; }
+    //     }
+        
+       
+    
+    // // wait for the document to be loaded, otherwise
+    // // ag-Grid will not find the div in the document.
+    //  document.addEventListener("DOMContentLoaded", function() {
+    
+    //     // lookup the container we want the Grid to use
+    //     var eGridDiv = document.querySelector('#myTable');
+    
+    //     // create the grid passing in the div to use together with the columns & data we want to use
+    //    new agGrid.Grid(eGridDiv, gridOptions);
+    // });
+           
 
            
            
@@ -255,11 +328,17 @@ window.App = {
         });
 
     },
-
-
+    
+   
 
 
 }
+
+
+
+
+
+
 
 
 window.addEventListener('load', function() {
