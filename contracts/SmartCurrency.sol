@@ -20,8 +20,8 @@ contract SmartCurrency {
 
 
  // Set values in storage
- function StoreDocument( bytes32 key,  string file) returns (bool success) {
-  documentStructs[key].file  = file;
+ function StoreDocument( bytes32 Key,  string file) returns (bool success) {
+  documentStructs[Key].file  = file;
  
  
  

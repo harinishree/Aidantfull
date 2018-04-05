@@ -57,7 +57,7 @@ module.exports = router => {
         // perform operation e.g. GET request http.get() etc.
        
       
-        // cron.schedule('*/2 * * * *', function(){
+        cron.schedule('*/2 * * * *', function(){
          
           
         fs.readdir(req.body.url, (err, files) => {
@@ -136,8 +136,8 @@ module.exports = router => {
        })
         
      }); 
-    //  console.log('running a task every two minutes');
-    // });
+     console.log('running a task every two minutes');
+    });
     router.post('/getAck', cors(), (req,res) => {
        var Key = req.body.Key;
        console.log(Key);
@@ -157,7 +157,7 @@ module.exports = router => {
                         .then(function(result) {
             
                             res.send({
-                                "message": result.message,
+                                "message": "Transaction complete",
                                 "status": true,
             
                              
@@ -193,7 +193,7 @@ module.exports = router => {
                     getStatus
                         .getStatus(key)
                         .then(function(result) {
-            
+            console.log(result.message)
                             res.send({
                                 "message": result.message,
                                 "status": true,

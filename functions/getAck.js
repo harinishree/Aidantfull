@@ -59,6 +59,7 @@ var account;
   
         console.log("entering into the web3.js fnc");
         console.log("files.......,",ack)
+        console.log("files.......,",Key)
     SmartCurrency.setProvider(web3SocketProvider);
         // SmartCurrencyE.setProvider(web3.currentProvider);
        
@@ -100,25 +101,26 @@ var account;
             });
            
        
-        }).then((value) => resolve({
+        }).then(() => resolve({
             status: 201,
-           message:value,
+           message: 'Transaction complete!'
         
       }))
-
-        .catch(err => {
-            if (err.code == 11000) {
-                reject({
-                    status: 409,
-                    message: 'Error Approving transaction due to insufficient Balance'
-                });
-            } else {
-                reject({
-                    status: 500,
-                    message: 'Internal Server Error !'
-                });
-            }
-        })
+        
+    
+     .catch(err => {
+         if (err.code == 11000) {
+             reject({
+                 status: 409,
+                 message: 'Error Approving transaction due to insufficient Balance'
+             });
+         } else {
+             reject({
+                 status: 500,
+                 message: 'Internal Server Error !'
+             });
+         }
+     })
     });
     
 
