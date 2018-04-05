@@ -1,44 +1,35 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.6;
+contract SmartCurrency {
 
+  
+
+
+ // This is a Type
+ struct DocumentStruct{
+   // Not possible to pass strings between contracts at this time
+   string file;
+   string ack;
+  
+
+  
+ }
    
-   contract SmartCurrency {
-    mapping (address => uint256) balances;
-    mapping (address => Usr ) Users;
-   
-    //users will be stored in address array.
-   struct Usr {
-    
-    string [] details;
-    
-    }
 
-   event Transfer(address indexed _from, address indexed _to, uint256 _value , string _updateString); //transfer amount from to receiver
-    
-    function SmartCurrency() {
-    balances[msg.sender]= 100000;
-      
-   }
+ // This is a namespace where we will store docs of Type DocumentStruct
+  mapping(bytes32 => DocumentStruct) public documentStructs;
 
-   function SendCoins(address receiver,string updateString, uint amount)returns(bool sufficient) {
-        if (balances[msg.sender] < amount) return false; // checks balance is not 0.
-        balances[msg.sender] -= amount; // deducts  balance from Sender.
-        balances[receiver] += amount; // increments  balance of  receiver.
-        Users[msg.sender].details.push(updateString);
-        Transfer(msg.sender, receiver, amount , updateString); // event transfer gets called.
-        return true;
-    }
-    
-   function getBalance(address addr) returns(uint ) {
-        return balances[addr]; // returns balance of reciever.
-        
-   }
-    function updateTransaction (string updateString) returns (bool updated) {
-         Users[msg.sender].details.push(updateString);
-         return true;
-    }
-    
-    function getTransaction(uint index) returns(string value ) {
-     return Users[msg.sender].details[index];
-     }
-     
+
+ // Set values in storage
+ function StoreDocument( bytes32 key,  string file) returns (bool success) {
+  documentStructs[key].file  = file;
+ 
+ 
+ 
+
+  return true;
+ }
+  function StoreAck( bytes32 Key,  string ack) returns (bool success) {
+  documentStructs[Key].ack  = ack;
+   return true;
+}
 }
