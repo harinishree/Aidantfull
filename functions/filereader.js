@@ -51,14 +51,14 @@ var account;
     
    
 
- module.exports.filereader = (URL,Key,file,usertype) => new Promise((resolve, reject) => {   
+ module.exports.filereader = (URL,sndKey,url,usertype) => new Promise((resolve, reject) => {   
  
     var globalVariable={
-        files: [URL,Key,file]
+        files: [URL,sndKey,url,usertype]
      };
   
         console.log("entering into the web3.js fnc");
-        console.log("files.......,",file)
+        console.log("files.......,",url)
         
     SmartCurrency.setProvider(web3SocketProvider);
         // SmartCurrencyE.setProvider(web3.currentProvider);
@@ -94,8 +94,10 @@ var account;
         console.log("manoj")
         SmartCurrency.deployed().then(function(instance) {
             console.log("entering into solidity")
+            console.log("entering into solidity",sndKey)
+            // console.log("entering into solidity",pubKey)
             rapid = instance;
-            return rapid.StoreDocument(Key.toString(),file.toString(),{
+            return rapid.StoreDocument(sndKey.toString(), url,{
                 from: account
                 
             });
@@ -105,40 +107,17 @@ var account;
           message: 'Transaction complete!'
        
      }))
-    .catch(err => {
-        if (err.code == 11000) {
-            reject({
-                status: 409,
-                message: 'Error Approving transaction due to insufficient Balance'
-            });
-        } else {
-            reject({
-                status: 500,
-                message: 'Internal Server Error !'
-            });
-        }
-    })
+    // .catch(err => {
+    //     if (err.code == 11000) {
+    //         reject({
+    //             status: 409,
+    //             message: 'Error Approving transaction due to insufficient Balance'
+    //         });
+    //     } else {
+    //         reject({
+    //             status: 500,
+    //             message: 'Internal Server Error !'
+    //         });
+    //     }
+    // })
 });
-
-
-
-
-      
-    function window(){
-            // window.addEventListener('load', function() {
-                // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-                if (typeof web3 !== 'undefined') {
-                    web3 = new web3(web3.currentProvider);
-                  } else {
-                    // set the provider you want from Web3.providers
-                    web3 = new web3(new web3.providers.HttpProvider("http://localhost:8545"));
-                  
-                    
-            
-                }
-               
-            // })
-        }
-             
-    
-        

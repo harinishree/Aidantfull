@@ -21,14 +21,15 @@
    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
    <!-- <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script> -->
    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  -->
+
    <script type='text/javascript'>
     function handler() {
         var companyname = document.getElementById("companyname").value;
         console.log("address...>>>" +companyname);
-        var publickey = document.getElementById("publickey").value;
-        console.log("address...>>>" +publickey);
-        var privatekey = document.getElementById("privatekey").value;
-        console.log("address...>>>" +privatekey);
+        // var publickey = document.getElementById("publickey").value;
+        // console.log("address...>>>" +publickey);
+        // var privatekey = document.getElementById("privatekey").value;
+        // console.log("address...>>>" +privatekey);
      var fname = document.getElementById("fname").value;
         console.log("address...>>>" +fname);
         var lname =  document.getElementById("lname").value;
@@ -44,9 +45,10 @@
         var usertype = document.getElementById("usertype").value;
         console.log("Coinreciever:------>" + usertype);
         var register = {
+
         "companyname":companyname,
-        "publickey" : publickey,
-        "privatekey": privatekey,
+        // "publickey" : publickey,
+        // "privatekey": privatekey,
         "fname" : fname, 
         "lname" : lname, 
         "userObject":userObject,
@@ -71,8 +73,8 @@
            
             
         });
-        alert("sucessfully registered!!!");
-        window.location = "login.html";
+        alert("Verify otp");
+        window.location = "otp.html";
         
     }
     </script>
@@ -96,13 +98,14 @@
                 <input type="text" style="width:150px" text-align: "left"; name="password"id="companyname"> 
                 <label>CompanyID:</label>&nbsp; 
                 <input type="text" style="width:150px" text-align: "left"; name="password"id="usertype"> <br><br>
-                <label>Publickey:</label>&nbsp; 
+                <!-- <label>Publickey:</label>&nbsp; 
                 <input type="text" style="width:150px" text-align: "left"; name="password"id="publickey">
                 <label>privatekey:</label>&nbsp; 
-                <input type="text" style="width:150px" text-align: "left"; name="password"id="privatekey"> <br> <br>
+                <input type="text" style="width:150px" text-align: "left"; name="password"id="privatekey"> <br> <br> -->
                
                 </div>
                 </div>
+
                 <div class="input-group">
                     <div class = "group">
                 <h3><center>Contact Information</center></h3>
@@ -128,7 +131,9 @@
         <br> <br>
         <br>
                <form>
+
                    
+
                        <label>FirstName:</label>
                        <input type="text" style="width:150px" text-align: "left"; name="UserName"id="fname"> <br> <br>
                        <label>LastName:</label>
@@ -144,6 +149,7 @@
                        <label>ID:</label>
                        <input type="text" style="width:150px" text-align: "left"; name="password"id="usertype"> <br> <br>
                      </form> <br> -->
+
                      <!-- <form action="dashboard1.html"> -->
                       <!-- <input type="submit" value="Login"> -->
                       <!-- </form> -->
@@ -156,5 +162,6 @@
     </div>
    </div>
    </body>
+
    
 </html> 

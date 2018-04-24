@@ -94,14 +94,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b61042c8061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820fa93f51fa4219d4ec8c3480409215c9071f643bfa93a597f4d43022657a550aa0029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820fa93f51fa4219d4ec8c3480409215c9071f643bfa93a597f4d43022657a550aa0029",
+  "bytecode": "0x6060604052341561000f57600080fd5b61042c8061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820dc477e96bff2ccfa6dd16242d5112e1b00bce49c80c12af38259b380953a29ab0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820dc477e96bff2ccfa6dd16242d5112e1b00bce49c80c12af38259b380953a29ab0029",
   "sourceMap": "315:636:1:-;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "315:636:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;508:252;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;452:53;;;;;;;;;;;;;;872:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;810:4;827:10;:18;846:16;857:4;846:10;:16::i;:::-;863:1;827:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;820:45;;763:106;;;:::o;508:252::-;565:15;613:6;590:8;:20;599:10;590:20;;;;;;;;;;;;;;;;:29;586:47;;;628:5;621:12;;;;586:47;661:6;637:8;:20;646:10;637:20;;;;;;;;;;;;;;;;:30;;;;;;;;;;;693:6;671:8;:18;680:8;671:18;;;;;;;;;;;;;;;;:28;;;;;;;;;;;724:8;703:38;;712:10;703:38;;;734:6;703:38;;;;;;;;;;;;;;;;;;752:4;745:11;;508:252;;;;;:::o;452:53::-;496:5;474:8;:19;483:9;474:19;;;;;;;;;;;;;;;:27;;;;452:53::o;872:77::-;914:4;931:8;:14;940:4;931:14;;;;;;;;;;;;;;;;924:21;;872:77;;;:::o",
   "source": "pragma solidity ^0.4.2;\n\nimport \"./ConvertLib.sol\";\n\n// This is just a simple example of a coin-like contract.\n// It is not standards compatible and cannot be expected to talk to other\n// coin/token contracts. If you want to create a standards-compliant\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\n\ncontract MetaCoin {\n\tmapping (address => uint) balances;\n\n\tevent Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n\tfunction cheque() {\n\t\tbalances[tx.origin] = 10000;\n\t}\n\n\tfunction sendCoin(address receiver, uint amount) returns(bool sufficient) {\n\t\tif (balances[msg.sender] < amount) return false;\n\t\tbalances[msg.sender] -= amount;\n\t\tbalances[receiver] += amount;\n\t\tTransfer(msg.sender, receiver, amount);\n\t\treturn true;\n\t}\n\n\tfunction getBalanceInEth(address addr) returns(uint) {\n\t\treturn ConvertLib.convert(getBalance(addr),2);\n\t}\n\n\tfunction getBalance(address addr) returns(uint) {\n\t\treturn balances[addr];\n\t}\n}\n",
-  "sourcePath": "/home/rpqb-desk-003/chequeclearance/contracts/MetaCoin.sol",
+  "sourcePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
   "ast": {
-    "absolutePath": "/home/rpqb-desk-003/chequeclearance/contracts/MetaCoin.sol",
+    "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
         112
@@ -122,7 +122,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/home/rpqb-desk-003/chequeclearance/contracts/ConvertLib.sol",
+        "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/ConvertLib.sol",
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
@@ -323,7 +323,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 265,
+                          "referencedDeclaration": 222,
                           "src": "483:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -455,7 +455,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "599:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -569,7 +569,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "646:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -711,7 +711,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "712:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1294,7 +1294,7 @@
     "src": "0:952:1"
   },
   "legacyAST": {
-    "absolutePath": "/home/rpqb-desk-003/chequeclearance/contracts/MetaCoin.sol",
+    "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
         112
@@ -1315,7 +1315,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/home/rpqb-desk-003/chequeclearance/contracts/ConvertLib.sol",
+        "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/ConvertLib.sol",
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
@@ -1516,7 +1516,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 265,
+                          "referencedDeclaration": 222,
                           "src": "483:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -1648,7 +1648,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "599:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1762,7 +1762,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "646:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1904,7 +1904,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 255,
+                          "referencedDeclaration": 212,
                           "src": "712:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2517,7 +2517,7 @@
         }
       },
       "links": {
-        "ConvertLib": "0x150454aa46ffc62685d5e06312232fcc19b3cd58"
+        "ConvertLib": "0x86eb75984e974c8d6ccdb3df41246245933b54a5"
       },
       "updated_at": 1509794545764
     },
@@ -3534,8 +3534,194 @@
       "links": {
         "ConvertLib": "0xeffcbd2d60e8b6a324c5f3ad4955523d19fa534f"
       }
+    },
+    "1522987662636": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x986446f524172b7c779787f6ca926c88c1aab09d"
+      }
+    },
+    "1523076409104": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x66156d4a722ff97153405a2839db955de82a48d4"
+      }
+    },
+    "1523246189058": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xd6b3058895d24d14da98b36804298075f4af8fb3"
+      }
+    },
+    "1523249460208": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xece93716eb05e57bb6f326e69e6fe12ba7eff57f"
+      }
+    },
+    "1523274685804": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xc54cbf45a45ad1f7b5bbeab4162707e5a4ac0566"
+      }
+    },
+    "1523275669912": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x347445a806939e65aa6fe4284d93061bcfcdb11f"
+      }
+    },
+    "1523276221665": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x87089cd5e5e57f52bd9a6841d42cd8312ac50ffe"
+      }
+    },
+    "1523335124649": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x89da3c0e9e5c5a881d8724921d0db8426f36b8c4"
+      }
+    },
+    "1523338968654": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x092c7e86c8867b379b1324ffc1c75a0fd2e64d22"
+      }
+    },
+    "1523423185317": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xf05f24830d7cfab4adb5422666361b2f973d057a"
+      }
+    },
+    "1523430889689": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x7a7d814267cac93e0da60aff6d83a1a5b79ceb03"
+      }
+    },
+    "1523430998881": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x3e7310167fea28b031a4b8b177be9ec24c125c2a"
+      }
+    },
+    "1523431031785": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xa841e09ebebb51598a23ba3f81839fb0a869467b"
+      }
+    },
+    "1523431399201": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x15b7dd11d7c1d1275b09682b4c3b8bb08a16153a"
+      }
+    },
+    "1523431744826": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x8538fe7e51ee0161aa23625ee0fa662e40cb2c3d"
+      }
+    },
+    "1523508971374": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xeb3d03b370ee1ca2d8ae6791d13d7edc7a8f9fb4"
+      }
+    },
+    "1523601377474": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xe751802ff24a155fba649267422aae139ac8f031"
+      }
+    },
+    "1523851741067": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x962ad90125e92ea3bacc6a7d17b0d821acba2e96"
+      }
+    },
+    "1523947544288": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x69cb0060ba7876bf2921ec68be2009fed6e5433f"
+      }
+    },
+    "1524024119103": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x697b6e620ec8ed75fa85d89b57096d8d8ef9d73d"
+      }
+    },
+    "1524115998852": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xc633f3d0988544c24491ae244080172eff86b65c"
+      }
+    },
+    "1524199473931": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x3613e5b20fd646c7cadb617d9e305486199d4057"
+      }
+    },
+    "1524230932141": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xe0e29288d1b749cf2a6124f07614de565ecbe332"
+      }
+    },
+    "1524234966431": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xbb4cc9ddefaf98bd459f039f3e426df81baddce1"
+      }
+    },
+    "1524285216388": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x19b7f8614e5e1fb9571db84cd253e80a46cea8ba"
+      }
+    },
+    "1524456668061": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x46ed53f800659b469389f6c399d83ad7767144da"
+      }
+    },
+    "1524462016621": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xadee47659e3c32908f08e9874b60e6c1373db61a"
+      }
+    },
+    "1524465269926": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xa80b2994cb5dd667e7de2dcb8255d5a2fc1e7282"
+      }
+    },
+    "1524486432361": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xe2050003bd38675a42e38876a75890458fce1092"
+      }
+    },
+    "1524489924905": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x79b4bcc30d0843e749194764f27c136530d8718f"
+      }
+    },
+    "1524542964318": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0x3d6852c4b0929c3c5742d5bdbcf2e7d070bf658a"
+      }
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-05T04:35:26.226Z"
+  "updatedAt": "2018-04-24T04:10:10.454Z"
 }

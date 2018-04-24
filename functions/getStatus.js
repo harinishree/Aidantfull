@@ -4,6 +4,7 @@ const web3Obj = new web3(web3SocketProvider);
 var contract = require("../node_modules/truffle-contract");
 const smartcurrency_artifacts = require('../build/contracts/SmartCurrency.json')
 var SmartCurrency = contract(smartcurrency_artifacts);
+const web3js =  new web3(web3SocketProvider);
 
 
 
@@ -87,6 +88,8 @@ var account;
         
             // self.accountStatus();
         });
+      
+
 
     
         var rapid;
@@ -98,11 +101,13 @@ var account;
                 from: account
             
             });
-           
+
+            
        
-        }).then((value) => resolve({
+        
+        }) .then((value) => resolve({
             status: 201,
-           message:value,
+           message: value
         
       }))
 
@@ -119,7 +124,13 @@ var account;
                 });
             }
         })
+     
+     
     });
+   
+
+     
+    
     
 
     function window(){

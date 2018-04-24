@@ -252,6 +252,27 @@ window.App = {
        
     
 },
+AddressGenerator: function() {
+    var self = this;
+
+    var meta;
+
+    SmartCurrency.deployed().then(function(instance) {
+        meta = instance;
+        return meta.AddressGenerator.call(account, {
+            from: account
+        });
+    }).then(function(value) {
+        var balance_element = document.getElementById("address");
+        balance_element.innerHTML = value.valueOf();
+        // alert("Keep Your Account Number Safe");
+    }).catch(function(e) {
+        console.log(e);
+
+    });
+},
+
+
 getStatus: function(){
     var key = (document.getElementById("mykey").value);
        

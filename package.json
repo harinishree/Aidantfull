@@ -44,6 +44,7 @@
     "crypto": "^1.0.1",
     "ethereumjs-wallet": "^0.6.0",
     "file-system": "^2.2.2",
+    "ipfs-api": "^20.0.0",
     "log4js": "^2.5.3",
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",

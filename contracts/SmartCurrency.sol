@@ -3,33 +3,24 @@ contract SmartCurrency {
 
   
 
-
  // This is a Type
  struct DocumentStruct{
    // Not possible to pass strings between contracts at this time
-   string file;
-   string ack;
-  
+     string url;
+//  string sndKey;
 
-  
- }
+  }
    
 
  // This is a namespace where we will store docs of Type DocumentStruct
   mapping(bytes32 => DocumentStruct) public documentStructs;
 
-
  // Set values in storage
- function StoreDocument( bytes32 Key,  string file) returns (bool success) {
-  documentStructs[Key].file  = file;
- 
- 
+ function StoreDocument( bytes32 sndKey, string url) returns (bool success) {
+//  documentStructs[pubKey].url  = url;
+  documentStructs[sndKey].url = url;
+ return true;
+ }
  
 
-  return true;
- }
-  function StoreAck( bytes32 Key,  string ack) returns (bool success) {
-  documentStructs[Key].ack  = ack;
-   return true;
-}
 }
