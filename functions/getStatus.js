@@ -52,14 +52,14 @@ var account;
     
    
 
- module.exports.getStatus = (key) => new Promise((resolve, reject) => {   
+ module.exports.getStatus = (reckey) => new Promise((resolve, reject) => {   
  
     var globalVariable={
-        key: [key]
+        key: [reckey]
      };
   
         console.log("entering into the web3.js fnc");
-        console.log("files.......,",key)
+        console.log("files.......,",reckey)
     SmartCurrency.setProvider(web3SocketProvider);
         // SmartCurrencyE.setProvider(web3.currentProvider);
        
@@ -97,7 +97,7 @@ var account;
         SmartCurrency.deployed().then(function(instance){
             rapid = instance;
                 
-            return rapid.documentStructs.call(key,{
+            return rapid.documentStructs.call(reckey,{
                 from: account
             
             });

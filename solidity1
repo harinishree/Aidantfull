@@ -1,0 +1,36 @@
+pragma solidity ^0.4.21;
+
+   
+   contract Purchaseorder {
+       address public manufacturer;
+       address public vendor;
+           mapping (address => Usr ) Users;
+           mapping (address => String) vendor;
+ struct Usr {
+    
+    string [] details;
+    
+    }
+        
+  modifier onlymanufacturer() {
+        require(msg.sender == manufacturer);
+        _;
+    }
+
+    modifier onlyvendor() {
+        require(msg.sender == vendor);
+        _;
+    }
+    function PO (address vendor,string updateString) returns (bool updated) {
+         Users[msg.sender].details.push(updateString);
+         return true;
+        
+    }
+   function getDetails (address addr) returns ( string ) {
+       return addr[vendor];
+  }
+     
+
+      
+   
+}

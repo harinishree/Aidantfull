@@ -51,10 +51,10 @@ var account;
     
    
 
- module.exports.filereader = (URL,sndKey,url,usertype) => new Promise((resolve, reject) => {   
+ module.exports.filereader = (URL,sndKey,url,usertype,Key) => new Promise((resolve, reject) => {   
  
     var globalVariable={
-        files: [URL,sndKey,url,usertype]
+        files: [URL,sndKey,url,usertype,Key]
      };
   
         console.log("entering into the web3.js fnc");
@@ -93,31 +93,54 @@ var account;
         var rapid;
         console.log("manoj")
         SmartCurrency.deployed().then(function(instance) {
-            console.log("entering into solidity")
+            console.log("entering into solidity",Key)
             console.log("entering into solidity",sndKey)
+            console.log("entering into solidity",url)
             // console.log("entering into solidity",pubKey)
             rapid = instance;
-            return rapid.StoreDocument(sndKey.toString(), url,{
+        //   var url = "QmQyr151jHbMyZSbrsfPoAG5SeYcW5RvvMTzNvvCg5C5Ef"
+          
+            return rapid.StoreDocument(sndKey.toString(), url,Key.toString(),{
                 from: account
                 
             });
            
        }) .then(() => resolve({
            status: 201,
-          message: 'Transaction complete!'
+          message: "Transaction Complete"
        
-     }))
-    // .catch(err => {
-    //     if (err.code == 11000) {
+    //  })).catch(err => {
+
     //         reject({
-    //             status: 409,
-    //             message: 'Error Approving transaction due to insufficient Balance'
+    //             status: 401,
+    //             message: 'Invalid Credentials !'
     //         });
-    //     } else {
-    //         reject({
-    //             status: 500,
-    //             message: 'Internal Server Error !'
-    //         });
-    //     }
-    // })
-});
+        
+    })).then(() => resolve({
+        status: 201,
+        message: 'loan  approved Sucessfully !'
+    }))
+
+    .catch(err => {
+
+        if (err.code == 11000) {
+
+            reject({
+                status: 409,
+                message: ' loan closed !'
+            });
+
+        } else {
+            console.log("error occurred" + err);
+
+            reject({
+                status: 500,
+                message: 'Internal Server Error !'
+            });
+        }
+    });
+
+ })
+
+
+    

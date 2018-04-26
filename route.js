@@ -16,14 +16,18 @@ const login = require('./functions/login');
 const filereader = require('./functions/filereader');
 const getStatus = require('./functions/getStatus');
 var fs =require('fs');
-const Crypto = require("crypto");
 
 var sha256 = require('js-sha256');
 var ipfsAPI = require('ipfs-api')
+const nodecipher = require('node-cipher');
  
 // or using options
 
 var ipfs = ipfsAPI('localhost', 5001)
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'd6F3Efeq';
+    
 
 
 
@@ -31,7 +35,7 @@ const nexmo = new Nexmo({
     apiKey: 'be214ba0',
     apiSecret: 'F0WCG2adz2udXrCB'
 });
-
+var output;
 
 
  
@@ -42,18 +46,23 @@ const nexmo = new Nexmo({
             console.log(URL);
             var usertype = req.body.usertype;
             console.log(usertype);
-            // const pubKey = req.body.pubKey;
-            // console.log(pubKey);
-            const sndKey = req.body.Key;
+            const Key = req.body.recKey;
+             console.log(Key);
+            const sndKey = req.body.sndKey;
             console.log(sndKey);
+           const password = req.body.sndKey;
+console.log(password);
             // const pubKey =req.body.pubKey;
             // console.log(pubKey)
         
                 // perform operation e.g. GET request http.get() etc.
+                var cron = require('node-cron');
+                
+                //  cron.schedule('*/2 * * * *', function(){
                
-              
-                // cron.schedule('*/2 * * * *', function(){
-                 
+  //do some work
+
+
                   
                 fs.readdir(req.body.url, (err, files) => {
                
@@ -61,25 +70,43 @@ const nexmo = new Nexmo({
                       if(file)
                     console.log("data",file);
                     var file = file;
-                    fs.readFile(URL+"/"+file,function(err,data){
-                 
-                        var data = data;
-                                console.log("received data:" + data);
-                     
-                        
+                    // fs.readFile(URL+"/"+file,function(err,data){
+                
+                    //     var data = data;
+                                // console.log("received data:" + data);
+                             console.log(URL+"/"+file )
+                               console.log("manoj")
+                                nodecipher.encryptSync({
+                                 input:URL+"/"+file ,
+                                 output: file,
+                                 password: password
+                                
+                                },function (err, opts) {
+                                 if (err) throw err;
+                                
+                                 console.log('It worked!');
+                               
+                                })
+                                console.log(output)
+                                fs.readFile(file,function(err,data){
+                                    var file1= data;
+                                    console.log(file1)
                         ipfs.files.add(data, (err, result) => { // Upload buffer to IPFS
                             if(err) {
                               console.error(err)
                               return
                             }
-                            let url = `https://ipfs.io/ipfs/${result[0].hash}`
+                            let url = `${result[0].hash}`
+                            //https://ipfs.io/ipfs/
                             console.log("url",url)
-                  
-                             
+                       
+                        
+                              
+                   
        
                     
                 console.log(file)
-                if (!URL ||!sndKey || !url ||!usertype ) {
+                if (!URL ||!sndKey || !url ||!usertype ||!Key ) {
                 res
                     .status(400)
                     .json({
@@ -89,11 +116,11 @@ const nexmo = new Nexmo({
                     else {
         
                         filereader
-                            .filereader(URL,sndKey,url,usertype)
+                            .filereader(URL,sndKey,url,usertype,Key)
                             .then(result => {
                 
                                 res.send({
-                                    "message": "Transaction complete",
+                                    "message": "Transaction Complete",
                                     "status": true,
                 
                                  
@@ -109,12 +136,18 @@ const nexmo = new Nexmo({
                                
                             }));
                     }
+                })
+            });
+        
                  });
+                
                 })
             })
-        })
-            
-    })        
+        
+        
+    
+    // })
+    
              
        
      
@@ -163,9 +196,42 @@ const nexmo = new Nexmo({
          
          router.post('/getStatus', cors(), (req,res) => {
              var self = this;
-             var key ="0x4cd6d799a09769d51ce8fe12573625f9bfe14081";
-             console.log(key)
-             if (!key) {
+             var reckey =req.body.Key;
+             console.log(reckey)
+             var password = reckey
+             console.log(password)
+          
+            var file =  "/home/rpqb-desk-003/Aident_files"
+            fs.readdir(file, (err, files) => {
+               
+                files.forEach(file => {
+                    if(file)
+                  console.log("data",file);
+                  var file1 = file;
+            console.log(file1)
+               nodecipher.decryptSync({
+                input: file,
+                output: file1 ,
+                password: password
+               }, function (err, opts) {
+                if (err) throw err;
+               
+                console.log('It worked!');
+               });
+           
+               var url = "/home/rpqb-desk-003/vendor_files"
+            //    fs.readFile("image.jpg",function(err,img){
+            //        console.log(img.toString())
+            //        var image = img
+            //        console.log(image)
+            console.log(url+"/"+file1)
+               fs.writeFile(url+"/"+file1, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            
+            
+         
+             if (!reckey) {
                  res
                      .status(400)
                      .json({
@@ -175,7 +241,7 @@ const nexmo = new Nexmo({
                      else {
          
                          getStatus
-                             .getStatus(key)
+                             .getStatus(reckey)
                              .then(function(result) {
                  
                                  res.send({
@@ -194,7 +260,13 @@ const nexmo = new Nexmo({
                                  status: err.status
                                 
                              }));
+                          
                      }
+                    })
+                })
+                
+                    });
+                })
 
 router.post('/registerUser', cors(), (req, res) => { 
     console.log("UI",req.body);
@@ -469,5 +541,5 @@ router.post("/user/phoneverification", cors(), (req, res) => {
             message: err.message
         }));
 });
-})     
+     
     }
