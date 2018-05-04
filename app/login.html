@@ -24,24 +24,19 @@
 
 </head>
 <script type='text/javascript'>
-
   function login() {
-
   
       var email = document.getElementById("email").value;
       console.log("lol----"+email)
       var password = document.getElementById("password").value;
       console.log("lol----"+password)
-
       var logreg = {
-
       "email" : email,
       "password" : password, 
     
       }
   
    $.ajax({
-
        url: 'http://localhost:8082/login' ,
           type: 'POST',
           contentType: 'application/json',
@@ -60,7 +55,7 @@
       // } else {
       //   window.location = "vendor.html";
       // }
-       window.location = "properties.html";
+       window.location = "outbox.html";
           },
        
            
@@ -69,7 +64,6 @@
     
       
   }
-
   </script>
 <nav class="navbar navbar-inverse">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -143,11 +137,7 @@
         <!-- <a href="dashboard2.html"><button>Login</button></a> -->
      <!-- <button class="button" id="send" onclick="App.myFunction()">Login</button> -->
                                        <br>
-                                       <button type="button" onclick="App.AddressGenerator()">Generate Wallet Address</button>
-                                       <br>
-                                       <br>
                                        <button type="button" onclick="login()">Login</button>
-                                       <h3>Your[ <span class="black"><span id="address"></span> ]Wallet Account</span>
     </div>
    </body>
 </html> 

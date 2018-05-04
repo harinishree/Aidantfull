@@ -3,7 +3,7 @@
 const user = require('../models/registerether');  
 // const user = require('../models/fetchdata');
 
-exports.registerUser = (companyname,firstname, lastname, userObject,email,password, retypepassword,usertype, encodedMail) => {
+exports.registerUser = (companyname,firstname, lastname, phonenumber,email,password, retypepassword,usertype, encodedMail,publickey,otp) => {
     return new Promise((resolve, reject) => {
 
     const newUser = new user({
@@ -11,14 +11,15 @@ exports.registerUser = (companyname,firstname, lastname, userObject,email,passwo
         companyname:companyname,
         firstname : firstname, 
         lastname : lastname, 
-        userObject: userObject,
+        phonenumber : phonenumber,
         email : email,
         password : password, 
         retypepassword : retypepassword,
         usertype : usertype,
         encodedMail: encodedMail,
-        // publickey:publickey,
+         publickey:publickey,
         // privatekey:privatekey,
+        otp:otp,
         count:0
     });
     newUser

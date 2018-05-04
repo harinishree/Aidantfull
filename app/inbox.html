@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!--<meta charset="utf-8" />-->
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -22,16 +23,19 @@
     <!-- <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script> -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  -->
 </head>
+
 <script type='text/javascript'>
        function getkey() {
      
-       
-         var Key = ""
-         console.log("lol----" +url)
+        var Key = document.getElementById("publickey").value;
+      console.log("lol----" +Key)
+      var status = "read"
+      console.log("status123...",status);
         
          var fetch = {
    
-       "Key":Key
+      "Key":Key,
+       
      }
        
      $.ajax({
@@ -40,11 +44,18 @@
       contentType: 'application/json',
         data: JSON.stringify(fetch),
         success: function(response) {
-        console.log((response));
-       //  var publickey = response.users.publicKey;
-       //       console.log("publickey",publickey);
-       //    var privatekey = response.PrivateKey;
-       //       console.log("privatekey",privatekey);
+        // console.log(("harini123",response));
+        // console.log("responses",response.message.status);
+        // var message = response.message.status;
+        // console.log("hari123",message);
+        // var url  = response.message.url;
+        // console.log("hari123",url);
+        var usertype = response.message;
+        console.log("hari123",usertype);
+        
+        
+        var row = "<tr><td>"+usertype+"</td><td>";
+            $('#myTable tr:last').after(row);
     
       }, 
                      
@@ -52,6 +63,7 @@
        }
      
        </script>
+
 <nav class="navbar navbar-inverse">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -61,6 +73,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+
     </div>
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -74,11 +87,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li><a href="register.html">Register</a></li>
+              <li><a href="login.html">Logout</a></li>
           </ul>
     </div>
 </nav>
 <body>
   <body  background="image/Webpage-Background.png">
+
+
     <h3>
         <center>Inbox</center>
     
@@ -89,35 +105,24 @@
      <br>
                         
      <form>
-            <label for="Name">URL:</label>
-            <input type="text" style="width:150px" text-align: "left"; name="UserName"id="url"> <br> <br>
-            <!-- <div class="wrapper">
-                <button type="button" onclick="fetchkey()">Test</button> <br> <br>
-             <br> -->
-            <label for="password">CompanyID:</label>
-            <input type="text" style="width:150px" text-align: "left" name="password"id="usertype"> <br> <br>
-           
+            
+          
             <label>  publickey:</label>
-            <input type="text" style="width:150px" text-align: "left" name="password"id="Key"> <br> <br>
+            <input type="text" style="width:150px" text-align: "left" name="password"id="publickey"> <br> <br>
    <div class="wrapper">
-     <button type="button" onclick="fetchkey()">Submit</button> <br> <br>
+     <button type="button" onclick="getkey()">Submit</button> <br> <br>
   <br>
           </form> <br>
                         <table id="myTable">
-                                <th>File Name</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Delivery Status</th>
+                                <th>URL</th>
                                 <tr>
-                                    <td>/home/rpqb-desk-004/Downloads</td>
-                                    <td>05.04.2018</td>
-                                    <td>5:00 am</td>
-                                    <td>Delivered</td>
-                                    
+                                    <td>/home/rpqb-desk-004/Downloads</td>   
                                 </tr>
                             </table>
                    <br>
             <br>
     </div>
+
 </body>
+
 </html>

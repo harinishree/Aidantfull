@@ -94,14 +94,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b61042c8061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820dc477e96bff2ccfa6dd16242d5112e1b00bce49c80c12af38259b380953a29ab0029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100b457806394a3b4f41461010e578063f8b2cb4f14610123575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610170565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100f4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610218565b604051808215151515815260200191505060405180910390f35b341561011957600080fd5b610121610371565b005b341561012e57600080fd5b61015a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103b8565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d610195846103b8565b60026000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15156101f657600080fd5b6102c65a03f4151561020757600080fd5b505050604051805190509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610269576000905061036b565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820dc477e96bff2ccfa6dd16242d5112e1b00bce49c80c12af38259b380953a29ab0029",
-  "sourceMap": "315:636:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "315:636:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;508:252;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;452:53;;;;;;;;;;;;;;872:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;810:4;827:10;:18;846:16;857:4;846:10;:16::i;:::-;863:1;827:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;820:45;;763:106;;;:::o;508:252::-;565:15;613:6;590:8;:20;599:10;590:20;;;;;;;;;;;;;;;;:29;586:47;;;628:5;621:12;;;;586:47;661:6;637:8;:20;646:10;637:20;;;;;;;;;;;;;;;;:30;;;;;;;;;;;693:6;671:8;:18;680:8;671:18;;;;;;;;;;;;;;;;:28;;;;;;;;;;;724:8;703:38;;712:10;703:38;;;734:6;703:38;;;;;;;;;;;;;;;;;;752:4;745:11;;508:252;;;;;:::o;452:53::-;496:5;474:8;:19;483:9;474:19;;;;;;;;;;;;;;;:27;;;;452:53::o;872:77::-;914:4;931:8;:14;940:4;931:14;;;;;;;;;;;;;;;;924:21;;872:77;;;:::o",
+  "bytecode": "0x608060405234801561001057600080fd5b50610465806100206000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100be57806394a3b4f414610123578063f8b2cb4f1461013a575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610191565b6040518082815260200191505060405180910390f35b3480156100ca57600080fd5b50610109600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610251565b604051808215151515815260200191505060405180910390f35b34801561012f57600080fd5b506101386103aa565b005b34801561014657600080fd5b5061017b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103f1565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d6101b6846103f1565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15801561020f57600080fd5b505af4158015610223573d6000803e3d6000fd5b505050506040513d602081101561023957600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102a257600090506103a4565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a723058207e8b572f210872b5146c55424d6e9307c5b46138d6772051fa8ae35b849a48970029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461006757806390b98a11146100be57806394a3b4f414610123578063f8b2cb4f1461013a575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610191565b6040518082815260200191505060405180910390f35b3480156100ca57600080fd5b50610109600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610251565b604051808215151515815260200191505060405180910390f35b34801561012f57600080fd5b506101386103aa565b005b34801561014657600080fd5b5061017b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103f1565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d6101b6846103f1565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15801561020f57600080fd5b505af4158015610223573d6000803e3d6000fd5b505050506040513d602081101561023957600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102a257600090506103a4565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b6127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a723058207e8b572f210872b5146c55424d6e9307c5b46138d6772051fa8ae35b849a48970029",
+  "sourceMap": "315:636:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;315:636:1;;;;;;;",
+  "deployedSourceMap": "315:636:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;763:106:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;508:252;;8:9:-1;5:2;;;30:1;27;20:12;5:2;508:252:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;452:53;;8:9:-1;5:2;;;30:1;27;20:12;5:2;452:53:1;;;;;;872:77;;8:9:-1;5:2;;;30:1;27;20:12;5:2;872:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;763:106;810:4;827:10;:18;846:16;857:4;846:10;:16::i;:::-;863:1;827:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;827:38:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;827:38:1;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;827:38:1;;;;;;;;;;;;;;;;820:45;;763:106;;;:::o;508:252::-;565:15;613:6;590:8;:20;599:10;590:20;;;;;;;;;;;;;;;;:29;586:47;;;628:5;621:12;;;;586:47;661:6;637:8;:20;646:10;637:20;;;;;;;;;;;;;;;;:30;;;;;;;;;;;693:6;671:8;:18;680:8;671:18;;;;;;;;;;;;;;;;:28;;;;;;;;;;;724:8;703:38;;712:10;703:38;;;734:6;703:38;;;;;;;;;;;;;;;;;;752:4;745:11;;508:252;;;;;:::o;452:53::-;496:5;474:8;:19;483:9;474:19;;;;;;;;;;;;;;;:27;;;;452:53::o;872:77::-;914:4;931:8;:14;940:4;931:14;;;;;;;;;;;;;;;;924:21;;872:77;;;:::o",
   "source": "pragma solidity ^0.4.2;\n\nimport \"./ConvertLib.sol\";\n\n// This is just a simple example of a coin-like contract.\n// It is not standards compatible and cannot be expected to talk to other\n// coin/token contracts. If you want to create a standards-compliant\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\n\ncontract MetaCoin {\n\tmapping (address => uint) balances;\n\n\tevent Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n\tfunction cheque() {\n\t\tbalances[tx.origin] = 10000;\n\t}\n\n\tfunction sendCoin(address receiver, uint amount) returns(bool sufficient) {\n\t\tif (balances[msg.sender] < amount) return false;\n\t\tbalances[msg.sender] -= amount;\n\t\tbalances[receiver] += amount;\n\t\tTransfer(msg.sender, receiver, amount);\n\t\treturn true;\n\t}\n\n\tfunction getBalanceInEth(address addr) returns(uint) {\n\t\treturn ConvertLib.convert(getBalance(addr),2);\n\t}\n\n\tfunction getBalance(address addr) returns(uint) {\n\t\treturn balances[addr];\n\t}\n}\n",
-  "sourcePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
+  "sourcePath": "/home/rpqb-desk-003/Aidant/contracts/MetaCoin.sol",
   "ast": {
-    "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
+    "absolutePath": "/home/rpqb-desk-003/Aidant/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
         112
@@ -122,7 +122,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/ConvertLib.sol",
+        "absolutePath": "/home/rpqb-desk-003/Aidant/contracts/ConvertLib.sol",
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
@@ -192,6 +192,7 @@
           },
           {
             "anonymous": false,
+            "documentation": null,
             "id": 31,
             "name": "Transfer",
             "nodeType": "EventDefinition",
@@ -323,7 +324,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 222,
+                          "referencedDeclaration": 299,
                           "src": "483:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -387,6 +388,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 42,
             "implemented": true,
             "isConstructor": false,
@@ -455,7 +457,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "599:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -569,7 +571,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "646:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -711,7 +713,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "712:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -829,6 +831,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 83,
             "implemented": true,
             "isConstructor": false,
@@ -1072,6 +1075,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 99,
             "implemented": true,
             "isConstructor": false,
@@ -1206,6 +1210,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 111,
             "implemented": true,
             "isConstructor": false,
@@ -1294,7 +1299,7 @@
     "src": "0:952:1"
   },
   "legacyAST": {
-    "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/MetaCoin.sol",
+    "absolutePath": "/home/rpqb-desk-003/Aidant/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
         112
@@ -1315,7 +1320,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/home/rpqb-desk-003/Aident Project/contracts/ConvertLib.sol",
+        "absolutePath": "/home/rpqb-desk-003/Aidant/contracts/ConvertLib.sol",
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
@@ -1385,6 +1390,7 @@
           },
           {
             "anonymous": false,
+            "documentation": null,
             "id": 31,
             "name": "Transfer",
             "nodeType": "EventDefinition",
@@ -1516,7 +1522,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 222,
+                          "referencedDeclaration": 299,
                           "src": "483:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -1580,6 +1586,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 42,
             "implemented": true,
             "isConstructor": false,
@@ -1648,7 +1655,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "599:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1762,7 +1769,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "646:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1904,7 +1911,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 212,
+                          "referencedDeclaration": 287,
                           "src": "712:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2022,6 +2029,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 83,
             "implemented": true,
             "isConstructor": false,
@@ -2265,6 +2273,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 99,
             "implemented": true,
             "isConstructor": false,
@@ -2399,6 +2408,7 @@
                 }
               ]
             },
+            "documentation": null,
             "id": 111,
             "implemented": true,
             "isConstructor": false,
@@ -2488,7 +2498,7 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {
     "3": {
@@ -3762,8 +3772,14 @@
       "links": {
         "ConvertLib": "0xdf83d23cfb039472bd1b13f3d6f7294039fe1653"
       }
+    },
+    "1525232435845": {
+      "events": {},
+      "links": {
+        "ConvertLib": "0xdcd1ce541b960fd9a12ba5e66fb06a11d8a17b2b"
+      }
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-26T05:41:15.598Z"
+  "updatedAt": "2018-05-02T07:31:55.176Z"
 }

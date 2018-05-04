@@ -1,0 +1,38 @@
+(err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            
+            
+         
+             if (!reckey) {
+                 res
+                     .status(400)
+                     .json({
+                         message: 'Invalid Request !'
+                     });
+                 }
+                     else {
+         
+                         getStatus
+                             .getStatus(reckey)
+                             .then(function(result) {
+                 
+                                 res.send({
+                                     "message": result.message,
+                                     "status": true,
+                 
+                                  
+                 
+                                 });
+                 
+                 
+                             })
+                             .catch(err => res.status(err.status).json({
+                                 message: err.message
+                             }).json({
+                                 status: err.status
+                                
+                             }));
+                          
+                     }
+                    }

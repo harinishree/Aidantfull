@@ -67,8 +67,10 @@ table{
   
       border: 1px solid lightblue;
     /* width:"100%"; */
-    margin: 0px auto;
-    margin-top: 100px;   
+    width: 800px;
+    margin: 0px ;
+    margin-top: 100px;
+    margin-left:-168px;  
 }
 th{
    border-right-width:medium;
@@ -192,16 +194,20 @@ input[type=password]:focus {
     box-sizing: border-box;
     color: black;
 }
+
 .container2 {
     position: relative;
    text-align: center;
    color:skyblue;
 }
+
 p {
     font-size: 27px;
     line-height: 1.5;
     color: white;
 }
+
+
 input[type=file] {
     margin: 0 auto;
     text-align: center;
@@ -245,6 +251,7 @@ input[type=file] {
     border-width:1px;
     border-color:black;
     text-align:left;
+
  }
  .input-group {
     position: relative;
@@ -252,5 +259,5 @@ input[type=file] {
     border-collapse: separate;
     margin-top: 50px;
     margin-left: 214px;
-    background-color: skyblue;
+    background-color: darkgray;
 }
