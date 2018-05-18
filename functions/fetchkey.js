@@ -1,17 +1,20 @@
 const user = require('../models/properties'); 
 
-exports.fetchkey = (publickey,status) => {
+exports.fetchkey = (sndKey,privateKey,status,IndexNumber) => {
 
     return new Promise((resolve, reject) => {
         console.log("Entering in to the function")
         
         user.findOneAndUpdate({
-            publickey:publickey
+            sndKey:sndKey,
+           
         }, {
             $set: {
 
-               status:status
-
+               
+               privateKey:privateKey,
+               status:status,
+               IndexNumber:IndexNumber,
 
             }
         }, {

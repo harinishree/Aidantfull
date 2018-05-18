@@ -3,15 +3,16 @@
 const user = require('../models/properties');  
 // const user = require('../models/fetchdata');
 
-exports.outboxUser = (url,usertype,publickey,venpublickey,status) => {
+exports.outboxUser = (URL,usertype,sndKey,Key,publicKey,status) => {
     return new Promise((resolve, reject) => {
 
     const newUser = new user({
 
-        url:url,
+       URL:URL,
        usertype:usertype,
-     publickey:publickey,
-     venpublickey: venpublickey,
+       sndKey:sndKey,
+       Key:Key,
+       publicKey:publicKey,
      status:status,
    
     });

@@ -6,8 +6,6 @@ const smartcurrency_artifacts = require('../build/contracts/SmartCurrency.json')
 var SmartCurrency = contract(smartcurrency_artifacts);
 
 
-
-
 // change provider
 
 var accounts;
@@ -105,7 +103,9 @@ var account;
                 
             });
            
-       }) .then(() => resolve({
+       })
+    
+        .then(() => resolve({
            status: 201,
           message: "Transaction Complete"
        

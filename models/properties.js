@@ -9,10 +9,12 @@ const propertiespageSchema = mongoose.Schema({
    
     usertype:  String,
     status: String,
-    publickey: String,
-    venpublickey: String,
-    privatekey: String,
-    url: String,
+    Key: String,
+    sndKey: String,
+    publicKey:String,
+    privateKey:String,
+    IndexNumber: String,
+    URL: String,
 
 });
 
