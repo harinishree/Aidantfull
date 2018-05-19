@@ -23,7 +23,8 @@ const registerpageSchema = mongoose.Schema({
     count: Number,
     publickey: String,
     privatekey: String,
-    url: String
+    url: String,
+    gender: String
     
     
      

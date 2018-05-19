@@ -51,7 +51,9 @@
 //             rows[i].insertBefore(td, rows[i].firstChild);
 //         }
     function getkey() {
-  
+
+        var path = document.getElementById("path").value;
+   console.log("lol----" +path)
       var privateKey = document.getElementById("privateKey").value;
    console.log("lol----" +privateKey)
     var sndKey = document.getElementById("sndKey").value;
@@ -62,7 +64,7 @@
    console.log("status123...",status);
      
       var fetch = {
-
+     "path":path,
   "sndKey":sndKey,
     "status": status,
     "privateKey":privateKey,
@@ -70,18 +72,20 @@
   }
     
   $.ajax({
-  url: 'http://localhost:8082/fetchkey' ,
+  url: 'http://localhost:8082/getStatus' ,
    type: 'POST',
    contentType: 'application/json',
      data: JSON.stringify(fetch),
      success: function(response) {
-     var usertype = response.message;
-     console.log("hari123",usertype.URL);
-     var url = usertype.URL;
+        console.log("response",response);
+     var usertype = response.message[1];
+     console.log("hari123",usertype);
+    //  var url = usertype.URL;
+    
      
      
        
-     var row = "<tr><td> </td><td>"+url+"</td></tr>";
+     var row = "<tr><td> </td><td>"+"https://ipfs.io/ipfs/"+usertype+"</td></tr>";
          $('#myTable tr:last').after(row);
    }, 
                   
@@ -131,9 +135,19 @@
                     <div class="main-login main-center">
                     <h3><center> <strong> Inbox </strong></center>  </h3> <br> 
                         <form class="" method="post" action="#">
+
+                                <div class="form-group">
+                                        <label for="name" class="cols-sm-2 control-label">Download Path:</label>
+                                        <div class="cols-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"></span>
+                                                    <input type="text" class="form-control" name="name"id="path" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
+                                                </div>
+                                            </div>
+                                            </div> 
                           
                                 <div class="form-group">
-                                        <label for="name" class="cols-sm-2 control-label">Key</label>
+                                        <label for="name" class="cols-sm-2 control-label">Vendor Address</label>
                                         <div class="cols-md-6">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"></span>
@@ -143,7 +157,7 @@
                                             </div> <br> 
 
                                             <div class="form-group">
-                                                <label for="name" class="cols-sm-2 control-label">PrivateKey</label>
+                                                <label for="name" class="cols-sm-2 control-label"> Vendor PrivateKey</label>
                                                 <div class="cols-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"></span>
@@ -166,7 +180,7 @@
                                 
                                 <tr>
                                     <td></td>
-                                    <td>0x68747470733a2f2f697066732e696f2f697066732f516d627178644b72627370</td>
+                                    <td>https://ipfs.io/ipfs/QmQBtFbFSaSuXNY1No46FZUfCTDbFgCiJ6VUoR4mAV4ZT7</td>
                                     
                                 </tr>
                             </table>
@@ -269,7 +283,7 @@
         margin-top: 30px;
         margin: 0 auto;
         max-width: 650px;
-        height: 450px;
+        height: 550px;
         padding: 10px 40px;
         background: #009edf;
         color: #FFF;

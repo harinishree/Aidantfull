@@ -5,6 +5,8 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://unpkg.com/sweetalert2@7.17.0/dist/sweetalert2.all.js"></script>
+       
         <!------ Include the above in your HEAD tag ---------->
         
        
@@ -20,6 +22,7 @@
                 <!-- Google Fonts -->
                 <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
                 <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+                <link rel="import" href="https://www.npmjs.com/package/sweetalert">
 </head>
 
   
@@ -37,6 +40,7 @@
 </script> -->
 
 <script type='text/javascript'>
+    
 
     function login() {
   
@@ -63,17 +67,17 @@
               console.log((response));
             var usertype = response.usertype;
             console.log(usertype)
-          var publickey = response.publicKey;
-            console.log("publickey",publickey);
-         var privatekey = response.PrivateKey;
-            console.log("privatekey",privatekey);
-        //     if(usertype == "manufacturer")
-        // {
-        //  window.location = "dashboard2.html";
-        // } else {
-        //   window.location = "vendor.html";
-        // }
-         window.location = "keygeneration.html";
+            var  type = "?para1=" +usertype
+
+         
+            if(usertype == "Manufacturer")
+        {
+         window.location = "properties.html";
+        } else {
+          window.location = "keygeneration.html";
+        }
+       alert("login sucessful");
+     
             },
          
              

@@ -42,6 +42,7 @@ var multipartMiddleware = multipart();
 const getotp = require('./functions/getotp');
 // const User = require('./functions/getUser');
 const mail = require('./functions/mail');
+const getkey = require('./functions/getkey');
 
 const SendOtp = require('sendotp');
 const sendOtp = new SendOtp('209235Abkzi8ZW2sr5acc5d6f');
@@ -70,72 +71,24 @@ if (typeof web3 !== 'undefined') {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
     web3.eth.defaultAccount = web3.eth.accounts[0];
     console.log(web3.eth.defaultAccount)
-    var CoursetroContract = web3.eth.contract([
+    var CoursetroContract = web3.eth.contract([[
         {
-            "anonymous": false,
+            "constant": true,
             "inputs": [
                 {
-                    "indexed": true,
-                    "name": "_sender",
+                    "name": "",
                     "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "name": "_key",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "name": "_keytype",
-                    "type": "string"
                 }
             ],
-            "name": "PublicKeyUpdated",
-            "type": "event"
-        },
-        {
-            "anonymous": false,
-            "inputs": [
+            "name": "last_msg_index",
+            "outputs": [
                 {
-                    "indexed": true,
-                    "name": "_sender",
-                    "type": "address"
-                },
-                {
-                    "indexed": true,
-                    "name": "_receiver",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "name": "_time",
+                    "name": "",
                     "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "name": "message",
-                    "type": "string"
                 }
             ],
-            "name": "Message",
-            "type": "event"
-        },
-        {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_to",
-                    "type": "address"
-                },
-                {
-                    "name": "_text",
-                    "type": "string"
-                }
-            ],
-            "name": "sendMessage",
-            "outputs": [],
             "payable": false,
-            "stateMutability": "nonpayable",
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -162,21 +115,17 @@ if (typeof web3 !== 'undefined') {
                 {
                     "name": "_who",
                     "type": "address"
+                },
+                {
+                    "name": "_index",
+                    "type": "uint256"
                 }
             ],
-            "name": "getLastMessage",
+            "name": "newMessage",
             "outputs": [
                 {
                     "name": "",
-                    "type": "address"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "uint256"
+                    "type": "bool"
                 }
             ],
             "payable": false,
@@ -218,6 +167,29 @@ if (typeof web3 !== 'undefined') {
             "constant": true,
             "inputs": [
                 {
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "keys",
+            "outputs": [
+                {
+                    "name": "key",
+                    "type": "string"
+                },
+                {
+                    "name": "key_type",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
                     "name": "_who",
                     "type": "address"
                 }
@@ -243,17 +215,25 @@ if (typeof web3 !== 'undefined') {
                 {
                     "name": "",
                     "type": "address"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
                 }
             ],
-            "name": "keys",
+            "name": "messages",
             "outputs": [
                 {
-                    "name": "key",
+                    "name": "from",
+                    "type": "address"
+                },
+                {
+                    "name": "text",
                     "type": "string"
                 },
                 {
-                    "name": "key_type",
-                    "type": "string"
+                    "name": "time",
+                    "type": "uint256"
                 }
             ],
             "payable": false,
@@ -261,15 +241,41 @@ if (typeof web3 !== 'undefined') {
             "type": "function"
         },
         {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "name": "_text",
+                    "type": "string"
+                }
+            ],
+            "name": "sendMessage",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "constant": true,
             "inputs": [
                 {
-                    "name": "",
+                    "name": "_who",
                     "type": "address"
                 }
             ],
-            "name": "last_msg_index",
+            "name": "getLastMessage",
             "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
                 {
                     "name": "",
                     "type": "uint256"
@@ -313,62 +319,58 @@ if (typeof web3 !== 'undefined') {
             "type": "function"
         },
         {
-            "constant": true,
+            "anonymous": false,
             "inputs": [
                 {
-                    "name": "",
+                    "indexed": true,
+                    "name": "_sender",
                     "type": "address"
                 },
                 {
-                    "name": "",
+                    "indexed": true,
+                    "name": "_receiver",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "_time",
                     "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "message",
+                    "type": "string"
                 }
             ],
-            "name": "messages",
-            "outputs": [
+            "name": "Message",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
                 {
-                    "name": "from",
+                    "indexed": true,
+                    "name": "_sender",
                     "type": "address"
                 },
                 {
-                    "name": "text",
+                    "indexed": false,
+                    "name": "_key",
                     "type": "string"
                 },
                 {
-                    "name": "time",
-                    "type": "uint256"
+                    "indexed": false,
+                    "name": "_keytype",
+                    "type": "string"
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "_who",
-                    "type": "address"
-                },
-                {
-                    "name": "_index",
-                    "type": "uint256"
-                }
-            ],
-            "name": "newMessage",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            "name": "PublicKeyUpdated",
+            "type": "event"
         }
     ]
+    ]
        );
-    var Coursetro = CoursetroContract.at('0xc1c020fe0aa11fa86d0d8cd1ef756e99421e3872');
+    var Coursetro = CoursetroContract.at('0x951cd0cdc403b89cdfe533703b6b2e5e1fa43232');
     console.log(Coursetro);
 }
 
@@ -670,7 +672,7 @@ module.exports = router => {
                 })
             
                                             const validCID = result[1];
-                                            var url ="/home/rpqb-desk-004/vendor_files"
+                                            var url = req.body.path;
                                             var file = fs.writeFile(url+"/"+validCID);
                 // var request = http.get("http://ipfs.io/ipfs/${result[1].hash}", function(response) {
                 //   response.pipe(file);
@@ -700,7 +702,7 @@ module.exports = router => {
            
                        
             
-                        var URL = "/home/rpqb-desk-004/vendor_files"
+                        var URL = req.body.path;
                         const file = result[1];
                         
                         fs.writeFile(URL+"/"+file, message, 'utf8', (err) => {
@@ -777,6 +779,10 @@ module.exports = router => {
         console.log("publickey", publickey);
         // const privatekey = req.body.privatekey;
         // console.log( "phone",privatekey);
+        const url = req.body.url;
+        console.log("url",url );
+        const  gender = req.body.gender;
+        console.log("gender", gender);
         var otp = "";
         var possible = "0123456789";
         for (var i = 0; i < 4; i++)
@@ -792,7 +798,7 @@ module.exports = router => {
 
         } else {
 
-            registerUser.registerUser(companyname, firstname, lastname, phonenumber, email, password, retypepassword, usertype, encodedMail, publickey, otp)
+            registerUser.registerUser(companyname, firstname, lastname, phonenumber, email, password, retypepassword, usertype, encodedMail, publickey, otp,url,gender)
                 .then(result => {
                     console.log("results harini", result);
                     // var link = "https://" + remoteHost + "/email/verify?mail=" + encodedMail + "&email=" + email;
@@ -817,12 +823,12 @@ module.exports = router => {
                     transporter.sendMail(mailOptions, (error, info) => {
                         if (error) {}
                     });
-                    sendOtp.send(phonenumber, "AIDANT", otp, function(error, data, response) {
-                        console.log(data);
-                        // console.log("response",response)
-                        console.log(otp, "otp")
+                    // sendOtp.send(phonenumber, "AIDANT", otp, function(error, data, response) {
+                    //     console.log(data);
+                    //     // console.log("response",response)
+                    //     console.log(otp, "otp")
 
-                    });
+                    // });
                     var otptosend = 'your otp is ' + otp;
                     console.log(otptosend, "otp")
                     if (!phonenumber) {
@@ -1041,9 +1047,8 @@ module.exports = router => {
                 res.send({
                     "message": "Login Successful",
                     "status": true,
-                    "usertype": result.users.usertype,
-                    "publicKey": result.users.publickey,
-                    "PrivateKey": result.users.privatekey
+                    "usertype": result.users.url,
+                    
                 });
             })
             .catch(err => res.status(err.status).json({
@@ -1166,6 +1171,28 @@ module.exports = router => {
 
     })
 
+    router.post('/getkey', cors(), (req, res) => {
 
+        console.log(req.body);
+        var sndKey = req.body.sndKey;
+        console.log("publickey",sndKey);
+        
+
+        getkey
+            .getkey(sndKey)
+            .then(function(result) {
+                console.log(result)
+
+                res.send({
+                    status: result.status,
+                    message: result.usr
+                });
+            })
+            .catch(err => res.status(err.status).json({
+                message: err.message
+            }));
+
+
+    });
 
 }

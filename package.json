@@ -68,6 +68,7 @@
     "pug": "^2.0.3",
     "sendmail": "^1.4.1",
     "sendotp": "^1.2.8",
+    "sweetalert": "^2.1.0",
     "ursa": "^0.9.4",
     "web3-eth-accounts": "^1.0.0-beta.34",
     "web3-provider-engine": "^13.3.3"
