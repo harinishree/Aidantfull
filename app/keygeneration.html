@@ -46,10 +46,16 @@
   <script type="text/javascript">
   
     function getaddress() {
-var manpvt = document.getElementById("manpvt").value;
-console.log("lol----" +manpvt)
+        var url = "Vendor"
+   console.log("status123...", url);
+   var usertype = "Honda"
+   console.log("status123...", usertype);
+var privatekey = document.getElementById("privatekey").value;
+console.log("lol----" +privatekey)
 var fetch = {
-"manpvt": manpvt,
+    "url":url,
+    "usertype":usertype,
+"privatekey": privatekey,
 }
 $.ajax({
 url: 'http://localhost:8082/keygenerator' ,
@@ -58,16 +64,23 @@ contentType: 'application/json',
 data: JSON.stringify(fetch),
 success: function(response) {
 console.log((response));
-var publickey = (response.message)
+var publickey = (response.result.publickey)
 console.log("publickey",publickey)
 document.getElementById("Key").value = publickey  ;
+// var data = response.result
+// document.getElementById("data").value = data;
+// console.log("data123",data)
+
+
 var queryString = "?para1=" +publickey  ;
+
 window.location.href = "properties.html" +queryString;
 }, 
+
 });
+
 }
-    
-      </script>
+ </script>
 
     
     </head> 
@@ -119,7 +132,7 @@ window.location.href = "properties.html" +queryString;
                                                 <div class="cols-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"></span>
-                                                            <input type="text" class="form-control" name="name" id="manpvt" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
+                                                            <input type="text" class="form-control" name="name" id="privatekey" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
                                                         </div>
                                                     </div>
                                                     </div> <br>
@@ -134,9 +147,8 @@ window.location.href = "properties.html" +queryString;
                                         <input type="text" class="form-control" name="name"  id="Key" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
                                     </div>
                                 </div>                        
-                                </div> <br>
-					
-						
+                                </div> <br>	
+                              
 				</div>
 			</div>
 

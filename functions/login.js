@@ -67,7 +67,8 @@ exports.loginUser = (email, password,usertype) =>
 
                     resolve({
                         status: 200,
-                        users: users[0]
+                        users: users[0],
+                        
                     });
 
                 } else {

@@ -18,6 +18,8 @@ const nodemailer = require('nodemailer');
 // const User = require('./functions/getUser');
 const registerUser = require('./functions/registerUser');
 const login = require('./functions/login');
+const keygeneration = require('./functions/keygeneration');
+const getallkey = require('./functions/getallkey');
 
 const outbox = require('./functions/outbox');
 const fetchkey = require('./functions/fetchkey');
@@ -71,24 +73,72 @@ if (typeof web3 !== 'undefined') {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
     web3.eth.defaultAccount = web3.eth.accounts[0];
     console.log(web3.eth.defaultAccount)
-    var CoursetroContract = web3.eth.contract([[
+    var CoursetroContract = web3.eth.contract([
         {
-            "constant": true,
+            "anonymous": false,
             "inputs": [
                 {
-                    "name": "",
+                    "indexed": true,
+                    "name": "_sender",
                     "type": "address"
-                }
-            ],
-            "name": "last_msg_index",
-            "outputs": [
+                },
                 {
-                    "name": "",
-                    "type": "uint256"
+                    "indexed": false,
+                    "name": "_key",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "name": "_keytype",
+                    "type": "string"
                 }
             ],
+            "name": "PublicKeyUpdated",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "name": "_sender",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "name": "_receiver",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "_time",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "message",
+                    "type": "string"
+                }
+            ],
+            "name": "Message",
+            "type": "event"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "name": "_text",
+                    "type": "string"
+                }
+            ],
+            "name": "sendMessage",
+            "outputs": [],
             "payable": false,
-            "stateMutability": "view",
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -115,17 +165,21 @@ if (typeof web3 !== 'undefined') {
                 {
                     "name": "_who",
                     "type": "address"
-                },
-                {
-                    "name": "_index",
-                    "type": "uint256"
                 }
             ],
-            "name": "newMessage",
+            "name": "getLastMessage",
             "outputs": [
                 {
                     "name": "",
-                    "type": "bool"
+                    "type": "address"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
                 }
             ],
             "payable": false,
@@ -167,29 +221,6 @@ if (typeof web3 !== 'undefined') {
             "constant": true,
             "inputs": [
                 {
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "keys",
-            "outputs": [
-                {
-                    "name": "key",
-                    "type": "string"
-                },
-                {
-                    "name": "key_type",
-                    "type": "string"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
                     "name": "_who",
                     "type": "address"
                 }
@@ -215,25 +246,17 @@ if (typeof web3 !== 'undefined') {
                 {
                     "name": "",
                     "type": "address"
-                },
-                {
-                    "name": "",
-                    "type": "uint256"
                 }
             ],
-            "name": "messages",
+            "name": "keys",
             "outputs": [
                 {
-                    "name": "from",
-                    "type": "address"
-                },
-                {
-                    "name": "text",
+                    "name": "key",
                     "type": "string"
                 },
                 {
-                    "name": "time",
-                    "type": "uint256"
+                    "name": "key_type",
+                    "type": "string"
                 }
             ],
             "payable": false,
@@ -241,41 +264,15 @@ if (typeof web3 !== 'undefined') {
             "type": "function"
         },
         {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_to",
-                    "type": "address"
-                },
-                {
-                    "name": "_text",
-                    "type": "string"
-                }
-            ],
-            "name": "sendMessage",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
             "constant": true,
             "inputs": [
                 {
-                    "name": "_who",
+                    "name": "",
                     "type": "address"
                 }
             ],
-            "name": "getLastMessage",
+            "name": "last_msg_index",
             "outputs": [
-                {
-                    "name": "",
-                    "type": "address"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
                 {
                     "name": "",
                     "type": "uint256"
@@ -319,58 +316,62 @@ if (typeof web3 !== 'undefined') {
             "type": "function"
         },
         {
-            "anonymous": false,
+            "constant": true,
             "inputs": [
                 {
-                    "indexed": true,
-                    "name": "_sender",
+                    "name": "",
                     "type": "address"
                 },
                 {
-                    "indexed": true,
-                    "name": "_receiver",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "name": "_time",
+                    "name": "",
                     "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "name": "message",
-                    "type": "string"
                 }
             ],
-            "name": "Message",
-            "type": "event"
+            "name": "messages",
+            "outputs": [
+                {
+                    "name": "from",
+                    "type": "address"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "time",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
-            "anonymous": false,
+            "constant": true,
             "inputs": [
                 {
-                    "indexed": true,
-                    "name": "_sender",
+                    "name": "_who",
                     "type": "address"
                 },
                 {
-                    "indexed": false,
-                    "name": "_key",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "name": "_keytype",
-                    "type": "string"
+                    "name": "_index",
+                    "type": "uint256"
                 }
             ],
-            "name": "PublicKeyUpdated",
-            "type": "event"
+            "name": "newMessage",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         }
     ]
-    ]
-       );
-    var Coursetro = CoursetroContract.at('0x951cd0cdc403b89cdfe533703b6b2e5e1fa43232');
+    );
+    var Coursetro = CoursetroContract.at('0x0b9825d065745d3d9e0c1917280249c485496bc7');
     console.log(Coursetro);
 }
 
@@ -449,12 +450,16 @@ module.exports = router => {
         var testObj = JSON.parse(fs.readFileSync('file.json', 'utf8'));
         console.log("testObj=====================>", testObj);
         var arr = testObj;
-        console.log(arr.jsonFileData[0]);
-        var json = arr.jsonFileData[0];
-        console.log("json", json.URL);
+        console.log(arr.jsonFileData);
+        var json = arr.jsonFileData;
+        console.log("jsonlength123?????????>>>>>", json.length);
+        var counter = 0;
+        if(counter==(array.length-1)){
+            for(var i=0;i<array.length;i++) {
 
-
-
+                
+            }
+        }
 
         var cron = require('node-cron');
 
@@ -465,6 +470,7 @@ module.exports = router => {
  console.log(sndKey)
  var publicKey = json.publicKey;
  console.log(publicKey)
+ console.log("json", json.URL);
 
             fs.readdir(json.URL, (err, data) => {
 
@@ -473,7 +479,7 @@ module.exports = router => {
                         console.log("data", data);
                     var file = data;
 
-                    fs.readFile(URL+"/"+file,function(err,data){
+                    fs.readFile(json.URL+"/"+file,function(err,data){
 
                         var data = data;
                     console.log("received data:" + data);
@@ -571,19 +577,58 @@ module.exports = router => {
     //  console.log('running a task every two minutes');
     // });
     router.post('/keygenerator', cors(), (req, res) => {
-        var  pvtkey = req.body.manpvt;
-        console.log(pvtkey);
-        const publicKey = EthereumEncryption.publicKeyFromPrivateKey(
-            pvtkey
+        var url = req.body.url;
+        console.log("url",url);
+        var usertype = req.body.usertype;
+        console.log("url",usertype);
+        var  privatekey = req.body.privatekey;
+        console.log(privatekey);
+        const  publickey = EthereumEncryption.publicKeyFromPrivateKey(
+            privatekey
         );
-        console.log(publicKey);
-        res.send({
-            "message": publicKey,
-            "status": true,
+        console.log( publickey);
+        keygeneration
+        .keygeneration(url,usertype,privatekey, publickey,)
+        .then(result => {
+            console.log("resultharini", result);
 
+            res.send({
+                "message": " Stored Successful",
+                "result":result.usr
+            });
         })
+        .catch(err => res.status(err.status).json({
+            message: err.message
+        }).json({
+            status: err.status
+        }));
 
+});
+
+router.post('/fetchallkey', cors(), (req, res) => {
+    
+    var usertype = req.body.usertype;
+    console.log("url",usertype);
+    
+  
+   getallkey
+    .getallkey(usertype)
+    .then(result => {
+        console.log("resultharini", result);
+
+        res.send({
+            "message": " Stored Successful",
+            "result":result.usr
+        });
     })
+    .catch(err => res.status(err.status).json({
+        message: err.message
+    }).json({
+        status: err.status
+    }));
+
+});
+    
         
     router.post('/getAck', cors(), (req, res) => {
         var key = req.body.Key;
@@ -775,14 +820,14 @@ module.exports = router => {
         console.log("harini123..<<<", usertype);
         const phonenumber = req.body.phonenumber;
         console.log("phone", phonenumber);
-        const publickey = req.body.publickey;
-        console.log("publickey", publickey);
         // const privatekey = req.body.privatekey;
         // console.log( "phone",privatekey);
         const url = req.body.url;
         console.log("url",url );
         const  gender = req.body.gender;
         console.log("gender", gender);
+        const accountaddress = req.body.accountaddress ;
+        console.log("accountaddress",accountaddress);
         var otp = "";
         var possible = "0123456789";
         for (var i = 0; i < 4; i++)
@@ -790,7 +835,7 @@ module.exports = router => {
         console.log("otp" + otp);
         var encodedMail = new Buffer(req.body.email).toString('base64');
 
-        if (!firstname || !lastname || !phonenumber || !email || !password || !retypepassword || !usertype) {
+        if (!firstname || !lastname || !phonenumber || !email || !password || !retypepassword || !usertype || !accountaddress) {
             res.status(400)
                 .json({
                     message: 'Invalid Request !'
@@ -798,7 +843,7 @@ module.exports = router => {
 
         } else {
 
-            registerUser.registerUser(companyname, firstname, lastname, phonenumber, email, password, retypepassword, usertype, encodedMail, publickey, otp,url,gender)
+            registerUser.registerUser(companyname, firstname, lastname, phonenumber, email, password, retypepassword, usertype, encodedMail,otp,url,gender,accountaddress)
                 .then(result => {
                     console.log("results harini", result);
                     // var link = "https://" + remoteHost + "/email/verify?mail=" + encodedMail + "&email=" + email;
@@ -1048,6 +1093,7 @@ module.exports = router => {
                     "message": "Login Successful",
                     "status": true,
                     "usertype": result.users.url,
+                    "email":result.users.email
                     
                 });
             })

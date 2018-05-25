@@ -44,25 +44,63 @@
 
 
   <script type="text/javascript">
-    function fetchkey() {
+ 
+
+   function add() {
+    var usertype = document.getElementById("usertype").value;
+        console.log("lol----" +usertype)
+        var data = {
+            "usertype":usertype
+        }
+        console.log("harini");
+        $.ajax({
+url: 'http://localhost:8082/fetchallkey' ,
+type: 'POST',
+contentType: 'application/json',
+data: JSON.stringify(data),
+success: function(response) {
+console.log((response.result[0].publickey));
+console.log((response.result[0].accountaddress));
+console.log((response.result[0].usertype));
+ var  sndKey = response.result[0].accountaddress;
+ console.log("accountaddress",sndKey)
+ var publicKey = response.result[0].publickey;
+console.log("vendorpubkey ",publicKey)
+ var usertype = response.result[0].usertype;
+ console.log("vendorpubkey ",usertype)
+//  var sndKey = document.getElementById("accountaddress").innerHTML = accountaddress ;
+// console.log("sndKey",sndKey)
+// publicKey = document.getElementById("vendorpubkey").innerHTML = vendorpubkey ;
+// console.log("vendorpubkey",vendorpubkey)
+// usertype = document.getElementById("companyid").innerHTML = companyid ;
+// console.log("usertype",usertype)
+fetchkey(sndKey,publicKey,usertype);
+}, 
+});
+
+}
+
+
+ function fetchkey(sndKey,publicKey,usertype) { 
+        console.log("accountaddress123",sndKey)
+        console.log("accountaddress123",publicKey)
+        console.log("accountaddress123",usertype)
         var self = this;
-  
         var  status = "sent"
         console.log("Ack",status);
       var url = document.getElementById("url").value;
       console.log("lol----" +url)
       var usertype = document.getElementById("usertype").value;
-      console.log("lol----" +usertype)
-      var manadd = document.getElementById("manadd").value;
+    console.log("harini" +usertype)
+     var manadd = document.getElementById("manadd").value;
       console.log("lol----" +manadd )
-     var  publicKey = document.getElementById("publicKey").value;
-      console.log("lol----" +publicKey)
-      var sndKey = document.getElementById("sndKey").value;
-      console.log("lol----" +sndKey)
+    //  var  publicKey = document.getElementById("publicKey").value;
+    //   console.log("harinipublickey" +publicKey)
+    //   var sndKey = document.getElementById("sndKey").value;
+    //   console.log("lol----" +sndKey)
       var fetch = {
    "url": url,
     "usertype":usertype,
-   
     "publicKey":publicKey,
     "manadd":manadd,
   "sndKey":sndKey,
@@ -81,11 +119,12 @@
    console.log("res123",result);
   
    }, 
-  
-       
+   
         });   
        
     }
+
+      
    
   
       </script>
@@ -164,9 +203,8 @@
                                                                 <input type="text" class="form-control" name="name" id="manadd" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
                                                             </div>
                                                         </div>
-                                                        </div>
-                                      
-                                        <div class="form-group">
+                                                        </div> <br>
+                                        <!-- <div class="form-group">
                                                 <label for="name" class="cols-sm-2 control-label"> Vendor Address</label>
                                                 <div class="cols-md-6">
                                                         <div class="input-group">
@@ -183,9 +221,10 @@
                                         <input type="text" class="form-control" name="name"  id="publicKey" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
                                     </div>
                                 </div>                        
-                                </div> <br>
+                                </div> <br> -->
+                                
 						<div class="form-group ">
-                                <button type="button" onclick="fetchkey()" class="btn btn-primary btn-lg btn-block login-button" >Submit </button> <br>
+                                <button type="button" onclick="add()" class="btn btn-primary btn-lg btn-block login-button" >Submit </button> <br>
                                 
                                 <span style="text-align: center" id ="message"></span>
                        
@@ -293,7 +332,7 @@
         margin-top: 30px;
         margin: 0 auto;
         max-width: 650px;
-        height: 630px;
+        height: 450px;
         padding: 10px 40px;
         background: #009edf;
         color: #FFF;

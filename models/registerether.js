@@ -24,7 +24,8 @@ const registerpageSchema = mongoose.Schema({
     publickey: String,
     privatekey: String,
     url: String,
-    gender: String
+    gender: String,
+    accountaddress: String
     
     
      

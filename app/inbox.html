@@ -62,7 +62,9 @@
    console.log("index" +IndexNumber)
    var status = "read"
    console.log("status123...",status);
-     
+
+     document.getElementById("display").innerHTML = document.getElementById("indexno").value
+     console.log("indexno123",indexno);
       var fetch = {
      "path":path,
   "sndKey":sndKey,
@@ -80,13 +82,11 @@
         console.log("response",response);
      var usertype = response.message[1];
      console.log("hari123",usertype);
-    //  var url = usertype.URL;
-    
-     
-     
-       
-     var row = "<tr><td> </td><td>"+"https://ipfs.io/ipfs/"+usertype+"</td></tr>";
-         $('#myTable tr:last').after(row);
+     var url = document.getElementById("usertype").innerHTML = usertype
+     console.log("url",url);
+ 
+    //  var row = "<tr><td> </td><td>"+"https://ipfs.io/ipfs/"+usertype+"</td></tr>";
+    //      $('#myTable tr:last').after(row);
    }, 
                   
         });     
@@ -141,7 +141,7 @@
                                         <div class="cols-md-6">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"></span>
-                                                    <input type="text" class="form-control" name="name"id="path" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"/>
+                                                    <input type="text" class="form-control" name="name"id="path" placeholder="e.g.,/home/rpqb-desk-004/Downloads"/>
                                                 </div>
                                             </div>
                                             </div> 
@@ -179,11 +179,11 @@
                         <th> File Name </th> 
                                 
                                 <tr>
-                                    <td></td>
-                                    <td>https://ipfs.io/ipfs/QmQBtFbFSaSuXNY1No46FZUfCTDbFgCiJ6VUoR4mAV4ZT7</td>
-                                    
+                                    <td> <span id="display"></span></td>
+                                    <td>  https://ipfs.io/ipfs/<span id="usertype"></span> </td>
+                                   
                                 </tr>
-                            </table>
+                            </table> 
                    <br>
             <br>
     </div>
@@ -354,7 +354,7 @@ table tr td:first-child::before {
     min-width: 1em;
     margin-right: 0.5em;
 } */
-body
+/* body
 {
     counter-reset: Serial;         
 }
@@ -363,7 +363,7 @@ tr td:first-child:before
 {
   counter-increment: Serial;    
   content:  counter(Serial); 
-}
+} */
     </style>
 
     <script>

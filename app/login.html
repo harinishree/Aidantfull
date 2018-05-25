@@ -67,8 +67,8 @@
               console.log((response));
             var usertype = response.usertype;
             console.log(usertype)
-            var  type = "?para1=" +usertype
-
+            var email = response.email;
+            console.log("email",email);
          
             if(usertype == "Manufacturer")
         {
@@ -77,7 +77,6 @@
           window.location = "keygeneration.html";
         }
        alert("login sucessful");
-     
             },
          
              

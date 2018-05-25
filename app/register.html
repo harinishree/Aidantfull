@@ -29,7 +29,7 @@
             function handler() {
                 var companyname = document.getElementById("companyname").value;
                 console.log("address...>>>" +companyname);
-                var publickey = "03e74203cd5d55228f7e6690d1f179c5e139eae8daef5ed3ff21cefd7a3028e90e";
+                // var publickey = "03e74203cd5d55228f7e6690d1f179c5e139eae8daef5ed3ff21cefd7a3028e90e";
                 // var privatekey = document.getElementById("privatekey").value;
                 // console.log("address...>>>" +privatekey);
              var fname = document.getElementById("fname").value;
@@ -48,12 +48,11 @@
                 console.log("Coinreciever:------>" + usertype);
                 var url = document.getElementById("url").value;
                 console.log("Coinreciever:------>" +url);
-                var gender = document.getElementById("gender").value;
-                console.log("Coinreciever:------>" + gender);
+                var accountaddress = document.getElementById("accountaddress").value;
+                console.log("Coinreciever:------>" +accountaddress);
 
                 var register = {
                 "companyname":companyname,
-                "publickey" : publickey,
                 // "privatekey": privatekey,
                 "fname" : fname, 
                 "lname" : lname, 
@@ -63,7 +62,8 @@
                 "repass" : repass,
                 "usertype" : usertype,
                 "url":url,
-                "gender":gender
+                "accountaddress":accountaddress
+                
 
                 }
                 
@@ -234,19 +234,17 @@
                     </div>
                 </div>
                 </div>
+                <div class="form-row">
+                    <label for="name" class="cols-sm-2 control-label">Account Address</label>
+                    <div class="col-sm-6"style="margin-bottom:13px">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-key" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" id="accountaddress"  placeholder="Enter your account address"/>
+                            </div>
+                        </div>
+                        </div>
                 <br>
-<div class="form-row">
-<label for="name" class="cols-sm-2 control-label">Gender</label>
-<div class="col-sm-6"style="margin-bottom:13px">
-<div class="input-group">
-        <select id="gender">
-                <option >Select Value</option>
-            <option id="gender">Male</option>
-            <option id="gender">Female</option>
-            </select>
-</div>
-</div>
-</div>
+
 
                <br>      
                         
@@ -354,7 +352,7 @@ padding: 8px 12px !important;
     margin-top: 30px;
     margin: 0 auto;
     max-width: 650px;
-    height: 530px;
+    height: 550px;
     padding: 10px 40px;
     background: #009edf;
     color: #FFF;

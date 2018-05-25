@@ -60,21 +60,20 @@ var svgNS = "http://www.w3.org/2000/svg";
          console.log("res123",response.message[0].status);
      var usertype = response.message[0].status;
      console.log("hari123",usertype);
-      var venkey =   usertype.sndKey;
-      console.log("venkey",venkey);
-     var status = usertype.status;
-     console.log("status123",status)
+      
      if(usertype == "read"){
         
         mycircle.style.fill='Green';
   
 
         console.log("entering in to the if loop");
-      }else
+      }else 
       {
-        console.log("entering in to the else loop");
+        console.log("entering in to the else if loop");
         mycircle.style.fill='yellow';
       }
+    
+      
     
     //  var row = "<tr><td>"+sndKey+"</td><td>"+  mycircle +"</td></tr>";
     //      $('#myTable tr:last').after(row);
